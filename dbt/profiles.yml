@@ -1,0 +1,21 @@
+livraison:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: livraison
+      password: livraison_pass
+      port: 5432
+      dbname: livraison_db
+      schema: public
+      threads: 4
+    prod:
+      type: postgres
+      host: "{{ env_var('DBT_HOST') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 5432
+      dbname: livraison_db
+      schema: public
+      threads: 8

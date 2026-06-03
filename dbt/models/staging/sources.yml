@@ -1,0 +1,17 @@
+version: 2
+sources:
+  - name: livraison_raw
+    description: "Tables brutes de l'application de livraison"
+    database: livraison_db
+    schema: public
+    tables:
+      - name: commande
+      - name: colis
+      - name: client
+      - name: livreur
+      - name: tournee
+      - name: statut_livraison
+      - name: incident
+      - name: retour
+      - name: facture
+      - name: notification

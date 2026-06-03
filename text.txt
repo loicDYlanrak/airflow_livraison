@@ -1,0 +1,34 @@
+docker-compose down
+
+# Build et démarrage de tous les services
+docker compose up --build -d
+
+# Vérifier que tous les conteneurs sont bien up
+docker compose ps
+
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT id, statut FROM commande;"
+
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "INSERT INTO commande (client_id, statut, montant_total) VALUES (999, 'NOUVELLE', 75.00);"
+
+
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT setval('commande_id_seq', (SELECT MAX(id) FROM commande));"
+
+docker exec -it airflow_scheduler airflow tasks test dag_traitement_commande attendre_nouvelle_commande 2024-01-01
+
+docker exec -it airflow_scheduler airflow tasks test dag_traitement_commande valider_commande 2024-01-01
+
+
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT id, client_id, statut FROM commande;"
+
+
+# 1. Réinitialise la séquence (fix duplicate key)
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT setval('commande_id_seq', (SELECT MAX(id) FROM commande));"
+
+# 2. Insère une nouvelle commande
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "INSERT INTO commande (client_id, statut, montant_total) VALUES (999, 'NOUVELLE', 75.00);"
+
+# 3. Trigger le DAG complet depuis l'UI ou en CLI
+docker exec -it airflow_scheduler airflow dags trigger dag_traitement_commande
+
+# 4. Vérifie que le statut passe à validee
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT id, client_id, statut FROM commande ORDER BY id;"

@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_warehouse
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: warehouse_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  airflow-init:
+    build: .
+    container_name: airflow_init
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/warehouse_db
+      AIRFLOW__WEBSERVER__SECRET_KEY: "d7K9mP2xQ5vL8nR3tW1yF4cB6jH9uM0k"
+    command: >
+      bash -c "
+      airflow db migrate &&
+      airflow users create
+      --username admin
+      --password admin
+      --firstname admin
+      --lastname admin
+      --role Admin
+      --email admin@test.com
+      "
+
+  airflow-webserver:
+    build: .
+    container_name: airflow_webserver
+    restart: always
+    depends_on:
+      - postgres
+      - airflow-init
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/warehouse_db
+      AIRFLOW__WEBSERVER__SECRET_KEY: "d7K9mP2xQ5vL8nR3tW1yF4cB6jH9uM0k"
+    command: webserver
+
+  airflow-scheduler:
+    build: .
+    container_name: airflow_scheduler
+    restart: always
+    depends_on:
+      - airflow-webserver
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/warehouse_db
+      AIRFLOW__WEBSERVER__SECRET_KEY: "d7K9mP2xQ5vL8nR3tW1yF4cB6jH9uM0k"
+    command: scheduler
+
+  postgres-livraison:
+    image: postgres:16
+    container_name: postgres_livraison
+    environment:
+      POSTGRES_USER: livraison
+      POSTGRES_PASSWORD: livraison_pass
+      POSTGRES_DB: livraison_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./scripts/init_livraison_tables.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_livraison_data:/var/lib/postgresql/data
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.7.0
+    container_name: dbt_livraison
+    depends_on:
+      - postgres-livraison
+    volumes:
+      - ./dbt:/usr/app/dbt
+    working_dir: /usr/app/dbt
+    environment:
+      DBT_HOST: postgres-livraison
+      DBT_USER: livraison
+      DBT_PASSWORD: livraison_pass
+      DBT_PORT: 5432
+      DBT_DBNAME: livraison_db
+
+volumes:
+  postgres_livraison_data:
