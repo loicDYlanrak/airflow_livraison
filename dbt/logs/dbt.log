@@ -1,0 +1,2478 @@
+[0m00:03:31.091046 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7569574a6e60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7569551ce0b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7569551cdf60>]}
+
+
+============================== 00:03:31.114165 | 9973a75c-32f6-4b05-8147-79051e4dbedb ==============================
+[0m00:03:31.114165 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:03:31.116082 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m00:03:31.119961 [info ] [MainThread]: dbt version: 1.7.0
+[0m00:03:31.121669 [info ] [MainThread]: python version: 3.10.7
+[0m00:03:31.123138 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m00:03:31.124619 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.31
+[0m00:03:31.307611 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m00:03:31.309105 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m00:03:31.310774 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/dbt_project.yml
+[0m00:03:31.313331 [info ] [MainThread]: adapter type: postgres
+[0m00:03:31.314759 [info ] [MainThread]: adapter version: 1.7.0
+[0m00:03:31.416088 [info ] [MainThread]: Configuration:
+[0m00:03:31.419399 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m00:03:31.421118 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m00:03:31.423210 [info ] [MainThread]: Required dependencies:
+[0m00:03:31.424674 [debug] [MainThread]: Executing "git --help"
+[0m00:03:31.456000 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m00:03:31.458540 [debug] [MainThread]: STDERR: "b''"
+[0m00:03:31.461137 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m00:03:31.464109 [info ] [MainThread]: Connection:
+[0m00:03:31.466902 [info ] [MainThread]:   host: postgres-livraison
+[0m00:03:31.470559 [info ] [MainThread]:   port: 5432
+[0m00:03:31.473193 [info ] [MainThread]:   user: livraison
+[0m00:03:31.474935 [info ] [MainThread]:   database: livraison_db
+[0m00:03:31.476891 [info ] [MainThread]:   schema: public
+[0m00:03:31.478571 [info ] [MainThread]:   connect_timeout: 10
+[0m00:03:31.479954 [info ] [MainThread]:   role: None
+[0m00:03:31.481481 [info ] [MainThread]:   search_path: None
+[0m00:03:31.482873 [info ] [MainThread]:   keepalives_idle: 0
+[0m00:03:31.485226 [info ] [MainThread]:   sslmode: None
+[0m00:03:31.486885 [info ] [MainThread]:   sslcert: None
+[0m00:03:31.488329 [info ] [MainThread]:   sslkey: None
+[0m00:03:31.489691 [info ] [MainThread]:   sslrootcert: None
+[0m00:03:31.490981 [info ] [MainThread]:   application_name: dbt
+[0m00:03:31.492206 [info ] [MainThread]:   retries: 1
+[0m00:03:31.493562 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:03:31.495312 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m00:03:31.496574 [debug] [MainThread]: Using postgres connection "debug"
+[0m00:03:31.497626 [debug] [MainThread]: On debug: select 1 as id
+[0m00:03:31.498512 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:03:31.521531 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:03:31.523635 [debug] [MainThread]: On debug: Close
+[0m00:03:31.525253 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m00:03:31.526547 [info ] [MainThread]: [32mAll checks passed![0m
+[0m00:03:31.529806 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.5937761, "process_user_time": 2.812378, "process_kernel_time": 0.247329, "process_mem_max_rss": "98808", "process_in_blocks": "13848", "process_out_blocks": "608"}
+[0m00:03:31.531495 [debug] [MainThread]: Command `dbt debug` succeeded at 00:03:31.531302 after 0.60 seconds
+[0m00:03:31.532613 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m00:03:31.535674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7569574a6e60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75695397a800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75695513bf40>]}
+[0m00:03:31.537544 [debug] [MainThread]: Flushing usage events
+[0m00:04:35.062470 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db39eb7340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db37bedff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db37bedf90>]}
+
+
+============================== 00:04:35.066439 | f84a87a7-b8ca-4c3e-aa99-751fbb39eb56 ==============================
+[0m00:04:35.066439 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:04:35.068057 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --select staging', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:04:35.319781 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db37d4cd90>]}
+[0m00:04:35.451737 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db37bee020>]}
+[0m00:04:35.453549 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:04:35.469730 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m00:04:35.479298 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m00:04:35.480937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db362faaa0>]}
+[0m00:04:37.457506 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34cd04f0>]}
+[0m00:04:37.495266 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34e72bf0>]}
+[0m00:04:37.496833 [info ] [MainThread]: Found 6 models, 8 tests, 10 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m00:04:37.498930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34f5b1f0>]}
+[0m00:04:37.502115 [info ] [MainThread]: 
+[0m00:04:37.504433 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:04:37.507182 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:04:37.525933 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:04:37.527692 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:04:37.529692 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:04:37.541685 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.0 seconds
+[0m00:04:37.544419 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:04:37.547188 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_public_staging)
+[0m00:04:37.549230 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "public_staging"
+"
+[0m00:04:37.555942 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_staging"
+[0m00:04:37.557249 [debug] [ThreadPool]: On create_livraison_db_public_staging: BEGIN
+[0m00:04:37.558423 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:04:37.568139 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.569530 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_staging"
+[0m00:04:37.570803 [debug] [ThreadPool]: On create_livraison_db_public_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_public_staging"} */
+create schema if not exists "public_staging"
+[0m00:04:37.574607 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:04:37.576488 [debug] [ThreadPool]: On create_livraison_db_public_staging: COMMIT
+[0m00:04:37.577818 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_staging"
+[0m00:04:37.578835 [debug] [ThreadPool]: On create_livraison_db_public_staging: COMMIT
+[0m00:04:37.581004 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:37.581980 [debug] [ThreadPool]: On create_livraison_db_public_staging: Close
+[0m00:04:37.584972 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_public_staging, now list_livraison_db_public_intermediate)
+[0m00:04:37.586076 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_marts'
+[0m00:04:37.587539 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_staging'
+[0m00:04:37.594427 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:04:37.598035 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:04:37.601342 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:04:37.603505 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: BEGIN
+[0m00:04:37.605951 [debug] [ThreadPool]: On list_livraison_db_public_marts: BEGIN
+[0m00:04:37.608731 [debug] [ThreadPool]: On list_livraison_db_public_staging: BEGIN
+[0m00:04:37.611609 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:04:37.614642 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:04:37.617702 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:04:37.639121 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.641707 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:04:37.642742 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.644707 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_intermediate"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_intermediate'
+  
+[0m00:04:37.645798 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.647157 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:04:37.649748 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:04:37.651315 [debug] [ThreadPool]: On list_livraison_db_public_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_staging"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_staging'
+  
+[0m00:04:37.653134 [debug] [ThreadPool]: On list_livraison_db_public_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_marts"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_marts'
+  
+[0m00:04:37.658257 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:04:37.659039 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:04:37.659677 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:04:37.662227 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: ROLLBACK
+[0m00:04:37.664561 [debug] [ThreadPool]: On list_livraison_db_public_staging: ROLLBACK
+[0m00:04:37.666756 [debug] [ThreadPool]: On list_livraison_db_public_marts: ROLLBACK
+[0m00:04:37.668283 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: Close
+[0m00:04:37.669489 [debug] [ThreadPool]: On list_livraison_db_public_staging: Close
+[0m00:04:37.670747 [debug] [ThreadPool]: On list_livraison_db_public_marts: Close
+[0m00:04:37.684863 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:37.686246 [debug] [MainThread]: On master: BEGIN
+[0m00:04:37.687621 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:04:37.697680 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.699165 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:37.700480 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:04:37.709584 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:04:37.712137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34d5a0e0>]}
+[0m00:04:37.713379 [debug] [MainThread]: On master: ROLLBACK
+[0m00:04:37.714481 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:37.715395 [debug] [MainThread]: On master: BEGIN
+[0m00:04:37.716677 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.718165 [debug] [MainThread]: On master: COMMIT
+[0m00:04:37.719206 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:37.720218 [debug] [MainThread]: On master: COMMIT
+[0m00:04:37.721443 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:37.722381 [debug] [MainThread]: On master: Close
+[0m00:04:37.723904 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:04:37.725278 [info ] [MainThread]: 
+[0m00:04:37.736013 [debug] [Thread-1 (]: Began running node model.livraison.stg_colis
+[0m00:04:37.736571 [debug] [Thread-2 (]: Began running node model.livraison.stg_commandes
+[0m00:04:37.737120 [debug] [Thread-3 (]: Began running node model.livraison.stg_statuts_livraison
+[0m00:04:37.738237 [info ] [Thread-1 (]: 1 of 3 START sql view model public_staging.stg_colis ........................... [RUN]
+[0m00:04:37.739992 [info ] [Thread-2 (]: 2 of 3 START sql view model public_staging.stg_commandes ....................... [RUN]
+[0m00:04:37.741637 [info ] [Thread-3 (]: 3 of 3 START sql view model public_staging.stg_statuts_livraison ............... [RUN]
+[0m00:04:37.743341 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_marts, now model.livraison.stg_colis)
+[0m00:04:37.745982 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_staging, now model.livraison.stg_commandes)
+[0m00:04:37.749125 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_intermediate, now model.livraison.stg_statuts_livraison)
+[0m00:04:37.750662 [debug] [Thread-1 (]: Began compiling node model.livraison.stg_colis
+[0m00:04:37.751957 [debug] [Thread-2 (]: Began compiling node model.livraison.stg_commandes
+[0m00:04:37.753060 [debug] [Thread-3 (]: Began compiling node model.livraison.stg_statuts_livraison
+[0m00:04:37.762535 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.stg_colis"
+[0m00:04:37.766510 [debug] [Thread-2 (]: Writing injected SQL for node "model.livraison.stg_commandes"
+[0m00:04:37.770834 [debug] [Thread-3 (]: Writing injected SQL for node "model.livraison.stg_statuts_livraison"
+[0m00:04:37.786027 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (compile): 00:04:37.763587 => 00:04:37.785630
+[0m00:04:37.787441 [debug] [Thread-2 (]: Began executing node model.livraison.stg_commandes
+[0m00:04:37.788682 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (compile): 00:04:37.767816 => 00:04:37.788292
+[0m00:04:37.795801 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (compile): 00:04:37.753901 => 00:04:37.795148
+[0m00:04:37.818906 [debug] [Thread-3 (]: Began executing node model.livraison.stg_statuts_livraison
+[0m00:04:37.844450 [debug] [Thread-2 (]: Writing runtime sql for node "model.livraison.stg_commandes"
+[0m00:04:37.845198 [debug] [Thread-1 (]: Began executing node model.livraison.stg_colis
+[0m00:04:37.851505 [debug] [Thread-3 (]: Writing runtime sql for node "model.livraison.stg_statuts_livraison"
+[0m00:04:37.859739 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.stg_colis"
+[0m00:04:37.873018 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:04:37.874388 [debug] [Thread-2 (]: On model.livraison.stg_commandes: BEGIN
+[0m00:04:37.875097 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:04:37.876427 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:04:37.877670 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:04:37.879222 [debug] [Thread-1 (]: On model.livraison.stg_colis: BEGIN
+[0m00:04:37.882789 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: BEGIN
+[0m00:04:37.884451 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:04:37.886103 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:04:37.892331 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.896800 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:04:37.898355 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.899673 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+
+  create view "livraison_db"."public_staging"."stg_commandes__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage et typage de la table source COMMANDE
+with source as (
+    select * from "livraison_db"."public"."commande"
+),
+renamed as (
+    select
+        id                          as commande_id,
+        client_id,
+        date_commande::timestamp    as commande_ts,
+        lower(trim(statut))         as statut,
+        montant_total::numeric(10,2) as montant_total,
+        created_at,
+        updated_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:04:37.900630 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:37.902221 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:04:37.904959 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:04:37.906455 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+
+  create view "livraison_db"."public_staging"."stg_colis__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage de la table COLIS
+with source as (
+    select * from "livraison_db"."public"."colis"
+),
+renamed as (
+    select
+        id                       as colis_id,
+        commande_id,
+        tournee_id,
+        reference_tracking,
+        poids_kg::numeric(6,2)   as poids_kg,
+        lower(statut_actuel)     as statut_actuel,
+        created_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:04:37.908017 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+
+  create view "livraison_db"."public_staging"."stg_statuts_livraison__dbt_tmp"
+    
+    
+  as (
+    -- Staging : historique des statuts de chaque colis
+with source as (
+    select * from "livraison_db"."public"."statut_livraison"
+),
+renamed as (
+    select
+        id                    as statut_id,
+        colis_id,
+        lower(statut)         as statut,
+        horodatage::timestamp as statut_ts,
+        localisation
+    from source
+)
+select * from renamed
+  );
+[0m00:04:37.919146 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:04:37.919707 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:04:37.920200 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:04:37.927655 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:04:37.932305 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:04:37.937598 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:04:37.938882 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+alter table "livraison_db"."public_staging"."stg_statuts_livraison__dbt_tmp" rename to "stg_statuts_livraison"
+[0m00:04:37.940135 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+alter table "livraison_db"."public_staging"."stg_commandes__dbt_tmp" rename to "stg_commandes"
+[0m00:04:37.941514 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+alter table "livraison_db"."public_staging"."stg_colis__dbt_tmp" rename to "stg_colis"
+[0m00:04:37.943490 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:04:37.944831 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:04:37.946149 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:04:37.964548 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:04:37.967110 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:04:37.970137 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:04:37.971515 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:04:37.972940 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:04:37.974874 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:04:37.977371 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:04:37.981140 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:04:37.984059 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:04:37.988954 [debug] [Thread-3 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:37.990883 [debug] [Thread-2 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:37.999233 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:38.011431 [debug] [Thread-3 (]: Applying DROP to: "livraison_db"."public_staging"."stg_statuts_livraison__dbt_backup"
+[0m00:04:38.017438 [debug] [Thread-2 (]: Applying DROP to: "livraison_db"."public_staging"."stg_commandes__dbt_backup"
+[0m00:04:38.025100 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."public_staging"."stg_colis__dbt_backup"
+[0m00:04:38.035641 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:04:38.038439 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:04:38.041684 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:04:38.044025 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+drop view if exists "livraison_db"."public_staging"."stg_statuts_livraison__dbt_backup" cascade
+[0m00:04:38.046440 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+drop view if exists "livraison_db"."public_staging"."stg_commandes__dbt_backup" cascade
+[0m00:04:38.048615 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+drop view if exists "livraison_db"."public_staging"."stg_colis__dbt_backup" cascade
+[0m00:04:38.051434 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:04:38.052843 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:04:38.054606 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:04:38.057962 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (execute): 00:04:37.846564 => 00:04:38.057588
+[0m00:04:38.062302 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (execute): 00:04:37.789788 => 00:04:38.061950
+[0m00:04:38.066104 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (execute): 00:04:37.853812 => 00:04:38.065766
+[0m00:04:38.067968 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: Close
+[0m00:04:38.070082 [debug] [Thread-2 (]: On model.livraison.stg_commandes: Close
+[0m00:04:38.072586 [debug] [Thread-1 (]: On model.livraison.stg_colis: Close
+[0m00:04:38.076040 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34c0ed40>]}
+[0m00:04:38.081537 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34b99bd0>]}
+[0m00:04:38.083830 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f84a87a7-b8ca-4c3e-aa99-751fbb39eb56', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db34c3be20>]}
+[0m00:04:38.085280 [info ] [Thread-3 (]: 3 of 3 OK created sql view model public_staging.stg_statuts_livraison .......... [[32mCREATE VIEW[0m in 0.33s]
+[0m00:04:38.087324 [info ] [Thread-2 (]: 2 of 3 OK created sql view model public_staging.stg_commandes .................. [[32mCREATE VIEW[0m in 0.34s]
+[0m00:04:38.089267 [info ] [Thread-1 (]: 1 of 3 OK created sql view model public_staging.stg_colis ...................... [[32mCREATE VIEW[0m in 0.34s]
+[0m00:04:38.091133 [debug] [Thread-3 (]: Finished running node model.livraison.stg_statuts_livraison
+[0m00:04:38.092770 [debug] [Thread-2 (]: Finished running node model.livraison.stg_commandes
+[0m00:04:38.094832 [debug] [Thread-1 (]: Finished running node model.livraison.stg_colis
+[0m00:04:38.100358 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:38.101553 [debug] [MainThread]: On master: BEGIN
+[0m00:04:38.102430 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:04:38.111959 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:04:38.113828 [debug] [MainThread]: On master: COMMIT
+[0m00:04:38.115083 [debug] [MainThread]: Using postgres connection "master"
+[0m00:04:38.116214 [debug] [MainThread]: On master: COMMIT
+[0m00:04:38.117414 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:04:38.118524 [debug] [MainThread]: On master: Close
+[0m00:04:38.120048 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:04:38.121287 [debug] [MainThread]: Connection 'model.livraison.stg_statuts_livraison' was properly closed.
+[0m00:04:38.122304 [debug] [MainThread]: Connection 'model.livraison.stg_colis' was properly closed.
+[0m00:04:38.123284 [debug] [MainThread]: Connection 'model.livraison.stg_commandes' was properly closed.
+[0m00:04:38.124314 [info ] [MainThread]: 
+[0m00:04:38.125445 [info ] [MainThread]: Finished running 3 view models in 0 hours 0 minutes and 0.62 seconds (0.62s).
+[0m00:04:38.128261 [debug] [MainThread]: Command end result
+[0m00:04:38.153502 [info ] [MainThread]: 
+[0m00:04:38.155331 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:04:38.157180 [info ] [MainThread]: 
+[0m00:04:38.159196 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m00:04:38.162398 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.1869633, "process_user_time": 4.731192, "process_kernel_time": 0.229904, "process_mem_max_rss": "115668", "process_in_blocks": "1536", "process_out_blocks": "56"}
+[0m00:04:38.164942 [debug] [MainThread]: Command `dbt run` succeeded at 00:04:38.164674 after 3.19 seconds
+[0m00:04:38.166608 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db39eb7340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db362ac130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76db36248940>]}
+[0m00:04:38.168314 [debug] [MainThread]: Flushing usage events
+[0m00:05:29.788216 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e25b027340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e258da9ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e258da9f90>]}
+
+
+============================== 00:05:29.792302 | 5b2682f5-7d99-46f2-8d87-66934d66d25c ==============================
+[0m00:05:29.792302 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:05:29.794609 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/usr/app/dbt', 'log_path': '/usr/app/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --select intermediate', 'send_anonymous_usage_stats': 'True'}
+[0m00:05:30.031313 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e258d0cd90>]}
+[0m00:05:30.145035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e258daa020>]}
+[0m00:05:30.146809 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:05:30.164284 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m00:05:30.331660 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:05:30.333164 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:05:30.340728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e2571380d0>]}
+[0m00:05:30.377406 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e25721e770>]}
+[0m00:05:30.378983 [info ] [MainThread]: Found 6 models, 8 tests, 10 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m00:05:30.380747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e25721e380>]}
+[0m00:05:30.384664 [info ] [MainThread]: 
+[0m00:05:30.386455 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:05:30.388653 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:05:30.402419 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:05:30.404269 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:05:30.405691 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:30.418486 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.0 seconds
+[0m00:05:30.421245 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:05:30.423559 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_public_intermediate)
+[0m00:05:30.425309 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "public_intermediate"
+"
+[0m00:05:30.433804 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_intermediate"
+[0m00:05:30.435183 [debug] [ThreadPool]: On create_livraison_db_public_intermediate: BEGIN
+[0m00:05:30.436240 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:05:30.446724 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.448143 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_intermediate"
+[0m00:05:30.449539 [debug] [ThreadPool]: On create_livraison_db_public_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_public_intermediate"} */
+create schema if not exists "public_intermediate"
+[0m00:05:30.451313 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:05:30.453257 [debug] [ThreadPool]: On create_livraison_db_public_intermediate: COMMIT
+[0m00:05:30.454419 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_intermediate"
+[0m00:05:30.455509 [debug] [ThreadPool]: On create_livraison_db_public_intermediate: COMMIT
+[0m00:05:30.457780 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:30.458995 [debug] [ThreadPool]: On create_livraison_db_public_intermediate: Close
+[0m00:05:30.463014 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_public_intermediate, now list_livraison_db_public_intermediate)
+[0m00:05:30.464295 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_marts'
+[0m00:05:30.465796 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_staging'
+[0m00:05:30.472540 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:05:30.475650 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:05:30.479883 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:05:30.481505 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: BEGIN
+[0m00:05:30.482738 [debug] [ThreadPool]: On list_livraison_db_public_marts: BEGIN
+[0m00:05:30.483838 [debug] [ThreadPool]: On list_livraison_db_public_staging: BEGIN
+[0m00:05:30.485113 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:05:30.486368 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:30.487505 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:30.497766 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.499548 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:05:30.500308 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.501696 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.502383 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_intermediate"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_intermediate'
+  
+[0m00:05:30.503868 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:05:30.504941 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:05:30.506734 [debug] [ThreadPool]: On list_livraison_db_public_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_marts"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_marts'
+  
+[0m00:05:30.507748 [debug] [ThreadPool]: On list_livraison_db_public_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_staging"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_staging'
+  
+[0m00:05:30.509956 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:05:30.512506 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: ROLLBACK
+[0m00:05:30.513180 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:05:30.513802 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.0 seconds
+[0m00:05:30.514909 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: Close
+[0m00:05:30.516813 [debug] [ThreadPool]: On list_livraison_db_public_marts: ROLLBACK
+[0m00:05:30.519048 [debug] [ThreadPool]: On list_livraison_db_public_staging: ROLLBACK
+[0m00:05:30.521924 [debug] [ThreadPool]: On list_livraison_db_public_marts: Close
+[0m00:05:30.522923 [debug] [ThreadPool]: On list_livraison_db_public_staging: Close
+[0m00:05:30.532215 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.533433 [debug] [MainThread]: On master: BEGIN
+[0m00:05:30.534661 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:05:30.544612 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.546272 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.547703 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:05:30.553145 [debug] [MainThread]: SQL status: SELECT 3 in 0.0 seconds
+[0m00:05:30.555527 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e25717b460>]}
+[0m00:05:30.556849 [debug] [MainThread]: On master: ROLLBACK
+[0m00:05:30.558236 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.560141 [debug] [MainThread]: On master: BEGIN
+[0m00:05:30.562119 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.563685 [debug] [MainThread]: On master: COMMIT
+[0m00:05:30.564904 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.566058 [debug] [MainThread]: On master: COMMIT
+[0m00:05:30.567379 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:30.568351 [debug] [MainThread]: On master: Close
+[0m00:05:30.569848 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:05:30.571154 [info ] [MainThread]: 
+[0m00:05:30.577143 [debug] [Thread-1 (]: Began running node model.livraison.int_livraisons_enrichies
+[0m00:05:30.579202 [info ] [Thread-1 (]: 1 of 1 START sql view model public_intermediate.int_livraisons_enrichies ....... [RUN]
+[0m00:05:30.581084 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_staging, now model.livraison.int_livraisons_enrichies)
+[0m00:05:30.582227 [debug] [Thread-1 (]: Began compiling node model.livraison.int_livraisons_enrichies
+[0m00:05:30.591466 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.604211 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (compile): 00:05:30.583108 => 00:05:30.603789
+[0m00:05:30.605360 [debug] [Thread-1 (]: Began executing node model.livraison.int_livraisons_enrichies
+[0m00:05:30.652551 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.684977 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.687552 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: BEGIN
+[0m00:05:30.690150 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:05:30.715256 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.717533 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.719490 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+
+  create view "livraison_db"."public_intermediate"."int_livraisons_enrichies__dbt_tmp"
+    
+    
+  as (
+    -- Intermediaire : joint colis + statuts + commande
+with colis as (
+    select * from "livraison_db"."public_staging"."stg_colis"
+),
+commandes as (
+    select * from "livraison_db"."public_staging"."stg_commandes"
+),
+derniers_statuts as (
+    select distinct on (colis_id)
+        colis_id,
+        statut        as dernier_statut,
+        statut_ts     as derniere_maj,
+        localisation
+    from "livraison_db"."public_staging"."stg_statuts_livraison"
+    order by colis_id, statut_ts desc
+)
+select
+    c.colis_id,
+    c.reference_tracking,
+    c.poids_kg,
+    c.statut_actuel,
+    com.commande_id,
+    com.commande_ts,
+    com.montant_total,
+    ds.dernier_statut,
+    ds.derniere_maj,
+    ds.localisation
+from colis c
+left join commandes com using (commande_id)
+left join derniers_statuts ds using (colis_id)
+  );
+[0m00:05:30.728123 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:05:30.736403 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.737848 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+alter table "livraison_db"."public_intermediate"."int_livraisons_enrichies__dbt_tmp" rename to "int_livraisons_enrichies"
+[0m00:05:30.739716 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:05:30.758005 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:05:30.760120 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.761384 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:05:30.764415 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:30.773697 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."public_intermediate"."int_livraisons_enrichies__dbt_backup"
+[0m00:05:30.780592 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:05:30.782033 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+drop view if exists "livraison_db"."public_intermediate"."int_livraisons_enrichies__dbt_backup" cascade
+[0m00:05:30.784717 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:05:30.788710 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (execute): 00:05:30.606379 => 00:05:30.788265
+[0m00:05:30.791046 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: Close
+[0m00:05:30.793605 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5b2682f5-7d99-46f2-8d87-66934d66d25c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e257470130>]}
+[0m00:05:30.795556 [info ] [Thread-1 (]: 1 of 1 OK created sql view model public_intermediate.int_livraisons_enrichies .. [[32mCREATE VIEW[0m in 0.21s]
+[0m00:05:30.797843 [debug] [Thread-1 (]: Finished running node model.livraison.int_livraisons_enrichies
+[0m00:05:30.801584 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.803008 [debug] [MainThread]: On master: BEGIN
+[0m00:05:30.804141 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:05:30.813920 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:30.815445 [debug] [MainThread]: On master: COMMIT
+[0m00:05:30.816619 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:30.817596 [debug] [MainThread]: On master: COMMIT
+[0m00:05:30.818713 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:30.819729 [debug] [MainThread]: On master: Close
+[0m00:05:30.821095 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:05:30.822296 [debug] [MainThread]: Connection 'list_livraison_db_public_intermediate' was properly closed.
+[0m00:05:30.823321 [debug] [MainThread]: Connection 'list_livraison_db_public_marts' was properly closed.
+[0m00:05:30.824161 [debug] [MainThread]: Connection 'model.livraison.int_livraisons_enrichies' was properly closed.
+[0m00:05:30.825059 [info ] [MainThread]: 
+[0m00:05:30.827070 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.44 seconds (0.44s).
+[0m00:05:30.829147 [debug] [MainThread]: Command end result
+[0m00:05:30.853005 [info ] [MainThread]: 
+[0m00:05:30.854561 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:05:30.856055 [info ] [MainThread]: 
+[0m00:05:30.857522 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m00:05:30.860206 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.1467875, "process_user_time": 3.0553, "process_kernel_time": 0.235023, "process_mem_max_rss": "108324", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m00:05:30.862975 [debug] [MainThread]: Command `dbt run` succeeded at 00:05:30.862723 after 1.15 seconds
+[0m00:05:30.864525 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e25b027340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e258d0cd90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77e2574be1d0>]}
+[0m00:05:30.865959 [debug] [MainThread]: Flushing usage events
+[0m00:05:47.632760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0ed017370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0ead4e080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0ead4e020>]}
+
+
+============================== 00:05:47.637022 | 12442be2-a9ee-4eb6-852e-d3afa65d4b15 ==============================
+[0m00:05:47.637022 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:05:47.638795 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --select marts', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:05:47.881803 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e9597520>]}
+[0m00:05:48.009169 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e94ccd90>]}
+[0m00:05:48.011131 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:05:48.029201 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m00:05:48.210294 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:05:48.211839 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:05:48.219484 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e92c80d0>]}
+[0m00:05:48.260178 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e93ae800>]}
+[0m00:05:48.261933 [info ] [MainThread]: Found 6 models, 8 tests, 10 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[0m00:05:48.263597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e93ae410>]}
+[0m00:05:48.266899 [info ] [MainThread]: 
+[0m00:05:48.269570 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:05:48.272786 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:05:48.286191 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:05:48.287876 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:05:48.289472 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:48.300462 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.0 seconds
+[0m00:05:48.303910 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:05:48.306478 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_public_marts)
+[0m00:05:48.308335 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "public_marts"
+"
+[0m00:05:48.315307 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_marts"
+[0m00:05:48.317002 [debug] [ThreadPool]: On create_livraison_db_public_marts: BEGIN
+[0m00:05:48.318605 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:05:48.329577 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.331183 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_marts"
+[0m00:05:48.332430 [debug] [ThreadPool]: On create_livraison_db_public_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_public_marts"} */
+create schema if not exists "public_marts"
+[0m00:05:48.334500 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:05:48.336532 [debug] [ThreadPool]: On create_livraison_db_public_marts: COMMIT
+[0m00:05:48.337830 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_public_marts"
+[0m00:05:48.339027 [debug] [ThreadPool]: On create_livraison_db_public_marts: COMMIT
+[0m00:05:48.345596 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:48.346682 [debug] [ThreadPool]: On create_livraison_db_public_marts: Close
+[0m00:05:48.349932 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_public_marts, now list_livraison_db_public_intermediate)
+[0m00:05:48.351314 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_marts'
+[0m00:05:48.353317 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db_public_staging'
+[0m00:05:48.361185 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:05:48.364449 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:05:48.368816 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:05:48.370441 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: BEGIN
+[0m00:05:48.371910 [debug] [ThreadPool]: On list_livraison_db_public_marts: BEGIN
+[0m00:05:48.373404 [debug] [ThreadPool]: On list_livraison_db_public_staging: BEGIN
+[0m00:05:48.374707 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:05:48.376141 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:48.377421 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:05:48.388536 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.390526 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_intermediate"
+[0m00:05:48.391258 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.392857 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.393658 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_intermediate"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_intermediate'
+  
+[0m00:05:48.395297 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_marts"
+[0m00:05:48.396728 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_public_staging"
+[0m00:05:48.402461 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:05:48.404131 [debug] [ThreadPool]: On list_livraison_db_public_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_marts"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_marts'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_marts'
+  
+[0m00:05:48.405310 [debug] [ThreadPool]: On list_livraison_db_public_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_public_staging"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public_staging'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public_staging'
+  
+[0m00:05:48.407517 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: ROLLBACK
+[0m00:05:48.410923 [debug] [ThreadPool]: On list_livraison_db_public_intermediate: Close
+[0m00:05:48.412589 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.0 seconds
+[0m00:05:48.414186 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:05:48.416448 [debug] [ThreadPool]: On list_livraison_db_public_staging: ROLLBACK
+[0m00:05:48.418883 [debug] [ThreadPool]: On list_livraison_db_public_marts: ROLLBACK
+[0m00:05:48.420897 [debug] [ThreadPool]: On list_livraison_db_public_staging: Close
+[0m00:05:48.422659 [debug] [ThreadPool]: On list_livraison_db_public_marts: Close
+[0m00:05:48.432736 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.434320 [debug] [MainThread]: On master: BEGIN
+[0m00:05:48.435922 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:05:48.446577 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.448263 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.449878 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:05:48.456602 [debug] [MainThread]: SQL status: SELECT 6 in 0.0 seconds
+[0m00:05:48.460214 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e9117af0>]}
+[0m00:05:48.461686 [debug] [MainThread]: On master: ROLLBACK
+[0m00:05:48.463040 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.464236 [debug] [MainThread]: On master: BEGIN
+[0m00:05:48.466230 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.468018 [debug] [MainThread]: On master: COMMIT
+[0m00:05:48.469910 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.471235 [debug] [MainThread]: On master: COMMIT
+[0m00:05:48.472943 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:48.474548 [debug] [MainThread]: On master: Close
+[0m00:05:48.476737 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:05:48.479545 [info ] [MainThread]: 
+[0m00:05:48.487152 [debug] [Thread-1 (]: Began running node model.livraison.mart_incidents
+[0m00:05:48.488200 [debug] [Thread-2 (]: Began running node model.livraison.mart_performance_livraisons
+[0m00:05:48.490164 [info ] [Thread-1 (]: 1 of 2 START sql table model public_marts.mart_incidents ....................... [RUN]
+[0m00:05:48.491861 [info ] [Thread-2 (]: 2 of 2 START sql table model public_marts.mart_performance_livraisons .......... [RUN]
+[0m00:05:48.493896 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_marts, now model.livraison.mart_incidents)
+[0m00:05:48.496026 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_livraison_db_public_staging, now model.livraison.mart_performance_livraisons)
+[0m00:05:48.497616 [debug] [Thread-1 (]: Began compiling node model.livraison.mart_incidents
+[0m00:05:48.498929 [debug] [Thread-2 (]: Began compiling node model.livraison.mart_performance_livraisons
+[0m00:05:48.509908 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.mart_incidents"
+[0m00:05:48.514403 [debug] [Thread-2 (]: Writing injected SQL for node "model.livraison.mart_performance_livraisons"
+[0m00:05:48.523148 [debug] [Thread-1 (]: Timing info for model.livraison.mart_incidents (compile): 00:05:48.499876 => 00:05:48.522715
+[0m00:05:48.524500 [debug] [Thread-1 (]: Began executing node model.livraison.mart_incidents
+[0m00:05:48.532127 [debug] [Thread-2 (]: Timing info for model.livraison.mart_performance_livraisons (compile): 00:05:48.511287 => 00:05:48.531733
+[0m00:05:48.549620 [debug] [Thread-2 (]: Began executing node model.livraison.mart_performance_livraisons
+[0m00:05:48.591312 [debug] [Thread-2 (]: Writing runtime sql for node "model.livraison.mart_performance_livraisons"
+[0m00:05:48.592989 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.mart_incidents"
+[0m00:05:48.602601 [debug] [Thread-1 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:05:48.604072 [debug] [Thread-1 (]: On model.livraison.mart_incidents: BEGIN
+[0m00:05:48.605524 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:05:48.606132 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:05:48.607403 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: BEGIN
+[0m00:05:48.609777 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:05:48.618473 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.620235 [debug] [Thread-1 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:05:48.621785 [debug] [Thread-1 (]: On model.livraison.mart_incidents: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_incidents"} */
+
+  
+    
+
+  create  table "livraison_db"."public_marts"."mart_incidents__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart : synthese des incidents et alertes
+with incidents as (
+    select * from "livraison_db"."public"."incident"
+),
+colis as (
+    select * from "livraison_db"."public_staging"."stg_colis"
+)
+select
+    i.id            as incident_id,
+    i.colis_id,
+    c.reference_tracking,
+    i.type_incident,
+    i.priorite,
+    i.description,
+    i.signale_le::date as date_incident,
+    i.statut
+from incidents i
+left join colis c using (colis_id)
+order by i.signale_le desc
+  );
+  
+[0m00:05:48.623418 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.625706 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:05:48.626643 [debug] [Thread-1 (]: Postgres adapter: Postgres error: relation "public.incident" does not exist
+LINE 14:     select * from "livraison_db"."public"."incident"
+                           ^
+
+[0m00:05:48.628099 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+
+  
+    
+
+  create  table "livraison_db"."public_marts"."mart_performance_livraisons__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart analytique : KPI de performance des livraisons
+-- Utilise par le DAG rapport_journalier et les dashboards
+with livraisons as (
+    select * from "livraison_db"."public_intermediate"."int_livraisons_enrichies"
+),
+agregats as (
+    select
+        date_trunc('day', commande_ts)::date            as jour,
+        count(*)                                        as nb_livraisons_total,
+        count(*) filter (where dernier_statut = 'livre') as nb_livrees,
+        count(*) filter (where dernier_statut = 'echec') as nb_echecs,
+        round(
+            count(*) filter (where dernier_statut = 'livre')
+            * 100.0 / nullif(count(*), 0), 2
+        )                                               as taux_succes_pct,
+        avg(poids_kg)                                   as poids_moyen_kg,
+        sum(montant_total)                              as ca_journalier
+    from livraisons
+    group by 1
+)
+select * from agregats order by jour desc
+  );
+  
+[0m00:05:48.629700 [debug] [Thread-1 (]: On model.livraison.mart_incidents: ROLLBACK
+[0m00:05:48.632524 [debug] [Thread-1 (]: Timing info for model.livraison.mart_incidents (execute): 00:05:48.525858 => 00:05:48.632010
+[0m00:05:48.634284 [debug] [Thread-1 (]: On model.livraison.mart_incidents: Close
+[0m00:05:48.646127 [debug] [Thread-1 (]: Database Error in model mart_incidents (models/marts/mart_incidents.sql)
+  relation "public.incident" does not exist
+  LINE 14:     select * from "livraison_db"."public"."incident"
+                             ^
+  compiled Code at target/run/livraison/models/marts/mart_incidents.sql
+[0m00:05:48.647731 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e9189000>]}
+[0m00:05:48.649334 [error] [Thread-1 (]: 1 of 2 ERROR creating sql table model public_marts.mart_incidents .............. [[31mERROR[0m in 0.15s]
+[0m00:05:48.650319 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:05:48.651980 [debug] [Thread-1 (]: Finished running node model.livraison.mart_incidents
+[0m00:05:48.661969 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:05:48.664142 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+alter table "livraison_db"."public_marts"."mart_performance_livraisons__dbt_tmp" rename to "mart_performance_livraisons"
+[0m00:05:48.666207 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:05:48.690794 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:05:48.692441 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:05:48.694107 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:05:48.697725 [debug] [Thread-2 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:48.707185 [debug] [Thread-2 (]: Applying DROP to: "livraison_db"."public_marts"."mart_performance_livraisons__dbt_backup"
+[0m00:05:48.713923 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:05:48.715342 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+drop table if exists "livraison_db"."public_marts"."mart_performance_livraisons__dbt_backup" cascade
+[0m00:05:48.717397 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m00:05:48.720771 [debug] [Thread-2 (]: Timing info for model.livraison.mart_performance_livraisons (execute): 00:05:48.566735 => 00:05:48.720508
+[0m00:05:48.722132 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: Close
+[0m00:05:48.723862 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '12442be2-a9ee-4eb6-852e-d3afa65d4b15', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e9147ca0>]}
+[0m00:05:48.725623 [info ] [Thread-2 (]: 2 of 2 OK created sql table model public_marts.mart_performance_livraisons ..... [[32mSELECT 1[0m in 0.23s]
+[0m00:05:48.728036 [debug] [Thread-2 (]: Finished running node model.livraison.mart_performance_livraisons
+[0m00:05:48.731534 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.732757 [debug] [MainThread]: On master: BEGIN
+[0m00:05:48.733977 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:05:48.744253 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:05:48.746327 [debug] [MainThread]: On master: COMMIT
+[0m00:05:48.747631 [debug] [MainThread]: Using postgres connection "master"
+[0m00:05:48.749130 [debug] [MainThread]: On master: COMMIT
+[0m00:05:48.750721 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:05:48.752307 [debug] [MainThread]: On master: Close
+[0m00:05:48.754675 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:05:48.756797 [debug] [MainThread]: Connection 'list_livraison_db_public_intermediate' was properly closed.
+[0m00:05:48.758238 [debug] [MainThread]: Connection 'model.livraison.mart_incidents' was properly closed.
+[0m00:05:48.759508 [debug] [MainThread]: Connection 'model.livraison.mart_performance_livraisons' was properly closed.
+[0m00:05:48.760919 [info ] [MainThread]: 
+[0m00:05:48.762898 [info ] [MainThread]: Finished running 2 table models in 0 hours 0 minutes and 0.49 seconds (0.49s).
+[0m00:05:48.765437 [debug] [MainThread]: Command end result
+[0m00:05:48.793849 [info ] [MainThread]: 
+[0m00:05:48.795647 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m00:05:48.797813 [info ] [MainThread]: 
+[0m00:05:48.800286 [error] [MainThread]:   Database Error in model mart_incidents (models/marts/mart_incidents.sql)
+  relation "public.incident" does not exist
+  LINE 14:     select * from "livraison_db"."public"."incident"
+                             ^
+  compiled Code at target/run/livraison/models/marts/mart_incidents.sql
+[0m00:05:48.804942 [info ] [MainThread]: 
+[0m00:05:48.807205 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m00:05:48.809910 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 1.2551928, "process_user_time": 3.250057, "process_kernel_time": 0.255532, "process_mem_max_rss": "108808", "process_in_blocks": "440", "command_success": false, "process_out_blocks": "0"}
+[0m00:05:48.811760 [debug] [MainThread]: Command `dbt run` failed at 00:05:48.811541 after 1.26 seconds
+[0m00:05:48.813310 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0ed017370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e94ccd90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a0e9159510>]}
+[0m00:05:48.814851 [debug] [MainThread]: Flushing usage events
+[0m00:12:44.359747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fd1bfb340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcf931fc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcf931f60>]}
+
+
+============================== 00:12:44.364434 | cf32221a-68cc-41e3-80e3-eaf6c3212102 ==============================
+[0m00:12:44.364434 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:12:44.365921 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:12:44.642967 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcfa90e80>]}
+[0m00:12:44.768487 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcf931ff0>]}
+[0m00:12:44.770594 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:12:44.789349 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m00:12:45.010028 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m00:12:45.012750 [debug] [MainThread]: Partial parsing: added file: livraison://macros/generate_schema_name.sql
+[0m00:12:45.017604 [info ] [MainThread]: Unable to do partial parsing because change detected to override macro. Starting full parse.
+[0m00:12:46.501941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcc922200>]}
+[0m00:12:46.552443 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcca98ee0>]}
+[0m00:12:46.554250 [info ] [MainThread]: Found 6 models, 8 tests, 10 sources, 0 exposures, 0 metrics, 402 macros, 0 groups, 0 semantic models
+[0m00:12:46.556007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcca99390>]}
+[0m00:12:46.559403 [info ] [MainThread]: 
+[0m00:12:46.562192 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:12:46.565784 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:12:46.567434 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:12:46.568860 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:12:46.584865 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:12:46.588114 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:12:46.591850 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:12:46.593349 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:12:46.595520 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:12:46.596981 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:12:46.598332 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:12:46.599598 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:12:46.600820 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:12:46.614539 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m00:12:46.615189 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m00:12:46.618254 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:12:46.618721 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.0 seconds
+[0m00:12:46.620969 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:12:46.624962 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:12:46.630130 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_marts)
+[0m00:12:46.631050 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_intermediate)
+[0m00:12:46.631937 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now create_livraison_db_staging)
+[0m00:12:46.633462 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "marts"
+"
+[0m00:12:46.635343 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "intermediate"
+"
+[0m00:12:46.637169 [debug] [ThreadPool]: Creating schema "database: "livraison_db"
+schema: "staging"
+"
+[0m00:12:46.645255 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_marts"
+[0m00:12:46.648851 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_intermediate"
+[0m00:12:46.653702 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_staging"
+[0m00:12:46.655347 [debug] [ThreadPool]: On create_livraison_db_marts: BEGIN
+[0m00:12:46.656834 [debug] [ThreadPool]: On create_livraison_db_intermediate: BEGIN
+[0m00:12:46.658535 [debug] [ThreadPool]: On create_livraison_db_staging: BEGIN
+[0m00:12:46.660232 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.661632 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.663087 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.674301 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.675910 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_intermediate"
+[0m00:12:46.678397 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.679258 [debug] [ThreadPool]: On create_livraison_db_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_intermediate"} */
+create schema if not exists "intermediate"
+[0m00:12:46.680574 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.681634 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_marts"
+[0m00:12:46.683949 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:12:46.684996 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_staging"
+[0m00:12:46.686122 [debug] [ThreadPool]: On create_livraison_db_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_marts"} */
+create schema if not exists "marts"
+[0m00:12:46.688192 [debug] [ThreadPool]: On create_livraison_db_intermediate: COMMIT
+[0m00:12:46.689694 [debug] [ThreadPool]: On create_livraison_db_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "create_livraison_db_staging"} */
+create schema if not exists "staging"
+[0m00:12:46.691496 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:12:46.692406 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_intermediate"
+[0m00:12:46.694338 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+[0m00:12:46.695421 [debug] [ThreadPool]: On create_livraison_db_marts: COMMIT
+[0m00:12:46.696737 [debug] [ThreadPool]: On create_livraison_db_intermediate: COMMIT
+[0m00:12:46.698655 [debug] [ThreadPool]: On create_livraison_db_staging: COMMIT
+[0m00:12:46.699998 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_marts"
+[0m00:12:46.702874 [debug] [ThreadPool]: Using postgres connection "create_livraison_db_staging"
+[0m00:12:46.704006 [debug] [ThreadPool]: On create_livraison_db_marts: COMMIT
+[0m00:12:46.705400 [debug] [ThreadPool]: On create_livraison_db_staging: COMMIT
+[0m00:12:46.706258 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:46.708184 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:46.708951 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:46.709446 [debug] [ThreadPool]: On create_livraison_db_intermediate: Close
+[0m00:12:46.712807 [debug] [ThreadPool]: On create_livraison_db_marts: Close
+[0m00:12:46.714181 [debug] [ThreadPool]: On create_livraison_db_staging: Close
+[0m00:12:46.722095 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_staging, now list_livraison_db_marts)
+[0m00:12:46.723155 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_marts, now list_livraison_db_intermediate)
+[0m00:12:46.724216 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_livraison_db_intermediate, now list_livraison_db_staging)
+[0m00:12:46.732252 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_marts"
+[0m00:12:46.735823 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_intermediate"
+[0m00:12:46.739509 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_staging"
+[0m00:12:46.740917 [debug] [ThreadPool]: On list_livraison_db_marts: BEGIN
+[0m00:12:46.742198 [debug] [ThreadPool]: On list_livraison_db_intermediate: BEGIN
+[0m00:12:46.746791 [debug] [ThreadPool]: On list_livraison_db_staging: BEGIN
+[0m00:12:46.748239 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.749487 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.750611 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:12:46.763630 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.764301 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.765934 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_staging"
+[0m00:12:46.766631 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.768261 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_marts"
+[0m00:12:46.769612 [debug] [ThreadPool]: On list_livraison_db_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_staging"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m00:12:46.770796 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_intermediate"
+[0m00:12:46.772029 [debug] [ThreadPool]: On list_livraison_db_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_marts"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'marts'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'marts'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'marts'
+  
+[0m00:12:46.773942 [debug] [ThreadPool]: On list_livraison_db_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_intermediate"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'intermediate'
+  
+[0m00:12:46.776733 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:12:46.779348 [debug] [ThreadPool]: On list_livraison_db_staging: ROLLBACK
+[0m00:12:46.780108 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:12:46.780623 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+[0m00:12:46.781825 [debug] [ThreadPool]: On list_livraison_db_staging: Close
+[0m00:12:46.783590 [debug] [ThreadPool]: On list_livraison_db_marts: ROLLBACK
+[0m00:12:46.785758 [debug] [ThreadPool]: On list_livraison_db_intermediate: ROLLBACK
+[0m00:12:46.788520 [debug] [ThreadPool]: On list_livraison_db_marts: Close
+[0m00:12:46.789905 [debug] [ThreadPool]: On list_livraison_db_intermediate: Close
+[0m00:12:46.798099 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:46.799759 [debug] [MainThread]: On master: BEGIN
+[0m00:12:46.801375 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:12:46.823861 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.827488 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:46.830732 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:12:46.848921 [debug] [MainThread]: SQL status: SELECT 6 in 0.0 seconds
+[0m00:12:46.854809 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcde32b90>]}
+[0m00:12:46.858370 [debug] [MainThread]: On master: ROLLBACK
+[0m00:12:46.862246 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:46.865318 [debug] [MainThread]: On master: BEGIN
+[0m00:12:46.869466 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:46.872804 [debug] [MainThread]: On master: COMMIT
+[0m00:12:46.876007 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:46.881695 [debug] [MainThread]: On master: COMMIT
+[0m00:12:46.885371 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:46.888371 [debug] [MainThread]: On master: Close
+[0m00:12:46.892249 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:12:46.895987 [info ] [MainThread]: 
+[0m00:12:46.907609 [debug] [Thread-1 (]: Began running node model.livraison.stg_colis
+[0m00:12:46.909150 [debug] [Thread-2 (]: Began running node model.livraison.stg_commandes
+[0m00:12:46.910872 [debug] [Thread-3 (]: Began running node model.livraison.stg_statuts_livraison
+[0m00:12:46.914905 [info ] [Thread-1 (]: 1 of 6 START sql view model staging.stg_colis .................................. [RUN]
+[0m00:12:46.918413 [info ] [Thread-2 (]: 2 of 6 START sql view model staging.stg_commandes .............................. [RUN]
+[0m00:12:46.922002 [info ] [Thread-3 (]: 3 of 6 START sql view model staging.stg_statuts_livraison ...................... [RUN]
+[0m00:12:46.926384 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_livraison_db_marts, now model.livraison.stg_colis)
+[0m00:12:46.931135 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_livraison_db_intermediate, now model.livraison.stg_commandes)
+[0m00:12:46.934930 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_livraison_db_staging, now model.livraison.stg_statuts_livraison)
+[0m00:12:46.938029 [debug] [Thread-1 (]: Began compiling node model.livraison.stg_colis
+[0m00:12:46.941067 [debug] [Thread-2 (]: Began compiling node model.livraison.stg_commandes
+[0m00:12:46.945745 [debug] [Thread-3 (]: Began compiling node model.livraison.stg_statuts_livraison
+[0m00:12:46.971291 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.stg_colis"
+[0m00:12:46.979943 [debug] [Thread-2 (]: Writing injected SQL for node "model.livraison.stg_commandes"
+[0m00:12:46.992261 [debug] [Thread-3 (]: Writing injected SQL for node "model.livraison.stg_statuts_livraison"
+[0m00:12:47.008574 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (compile): 00:12:46.981759 => 00:12:47.007645
+[0m00:12:47.013570 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (compile): 00:12:46.972291 => 00:12:47.012680
+[0m00:12:47.016101 [debug] [Thread-3 (]: Began executing node model.livraison.stg_statuts_livraison
+[0m00:12:47.018766 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (compile): 00:12:46.949189 => 00:12:47.018089
+[0m00:12:47.020742 [debug] [Thread-2 (]: Began executing node model.livraison.stg_commandes
+[0m00:12:47.052386 [debug] [Thread-1 (]: Began executing node model.livraison.stg_colis
+[0m00:12:47.249144 [debug] [Thread-2 (]: Writing runtime sql for node "model.livraison.stg_commandes"
+[0m00:12:47.254811 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.stg_colis"
+[0m00:12:47.246986 [debug] [Thread-3 (]: Writing runtime sql for node "model.livraison.stg_statuts_livraison"
+[0m00:12:47.270710 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:12:47.273416 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:12:47.276095 [debug] [Thread-1 (]: On model.livraison.stg_colis: BEGIN
+[0m00:12:47.286214 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:12:47.287444 [debug] [Thread-2 (]: On model.livraison.stg_commandes: BEGIN
+[0m00:12:47.290860 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:12:47.294189 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: BEGIN
+[0m00:12:47.297833 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:12:47.303960 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:12:47.324871 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:47.330210 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:12:47.333310 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:47.335076 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+
+  create view "livraison_db"."staging"."stg_colis__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage de la table COLIS
+with source as (
+    select * from "livraison_db"."public"."colis"
+),
+renamed as (
+    select
+        id                       as colis_id,
+        commande_id,
+        tournee_id,
+        reference_tracking,
+        poids_kg::numeric(6,2)   as poids_kg,
+        lower(statut_actuel)     as statut_actuel,
+        created_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:12:47.338088 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:47.340013 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:12:47.346548 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:12:47.349731 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:12:47.350993 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+
+  create view "livraison_db"."staging"."stg_commandes__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage et typage de la table source COMMANDE
+with source as (
+    select * from "livraison_db"."public"."commande"
+),
+renamed as (
+    select
+        id                          as commande_id,
+        client_id,
+        date_commande::timestamp    as commande_ts,
+        lower(trim(statut))         as statut,
+        montant_total::numeric(10,2) as montant_total,
+        created_at,
+        updated_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:12:47.354115 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+
+  create view "livraison_db"."staging"."stg_statuts_livraison__dbt_tmp"
+    
+    
+  as (
+    -- Staging : historique des statuts de chaque colis
+with source as (
+    select * from "livraison_db"."public"."statut_livraison"
+),
+renamed as (
+    select
+        id                    as statut_id,
+        colis_id,
+        lower(statut)         as statut,
+        horodatage::timestamp as statut_ts,
+        localisation
+    from source
+)
+select * from renamed
+  );
+[0m00:12:47.373048 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:12:47.380887 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:12:47.383611 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+alter table "livraison_db"."staging"."stg_colis__dbt_tmp" rename to "stg_colis"
+[0m00:12:47.385145 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:12:47.397646 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:12:47.401354 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:12:47.411481 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:12:47.414803 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+alter table "livraison_db"."staging"."stg_commandes__dbt_tmp" rename to "stg_commandes"
+[0m00:12:47.442437 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+alter table "livraison_db"."staging"."stg_statuts_livraison__dbt_tmp" rename to "stg_statuts_livraison"
+[0m00:12:47.467612 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:12:47.469936 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:12:47.472706 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:12:47.474559 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:12:47.481712 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:12:47.487857 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:12:47.491059 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:12:47.494419 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:12:47.497949 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:12:47.503460 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:12:47.506972 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:12:47.508370 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:47.514991 [debug] [Thread-2 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:47.524329 [debug] [Thread-3 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:47.539019 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."staging"."stg_colis__dbt_backup"
+[0m00:12:47.549550 [debug] [Thread-2 (]: Applying DROP to: "livraison_db"."staging"."stg_commandes__dbt_backup"
+[0m00:12:47.559401 [debug] [Thread-3 (]: Applying DROP to: "livraison_db"."staging"."stg_statuts_livraison__dbt_backup"
+[0m00:12:47.583105 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:12:47.587076 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:12:47.592955 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:12:47.596967 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+drop view if exists "livraison_db"."staging"."stg_colis__dbt_backup" cascade
+[0m00:12:47.600385 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+drop view if exists "livraison_db"."staging"."stg_commandes__dbt_backup" cascade
+[0m00:12:47.604002 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+drop view if exists "livraison_db"."staging"."stg_statuts_livraison__dbt_backup" cascade
+[0m00:12:47.608345 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:12:47.612113 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:12:47.616029 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:12:47.620993 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (execute): 00:12:47.125531 => 00:12:47.620430
+[0m00:12:47.627302 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (execute): 00:12:47.080525 => 00:12:47.626466
+[0m00:12:47.633358 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (execute): 00:12:47.022983 => 00:12:47.632759
+[0m00:12:47.636674 [debug] [Thread-1 (]: On model.livraison.stg_colis: Close
+[0m00:12:47.639571 [debug] [Thread-2 (]: On model.livraison.stg_commandes: Close
+[0m00:12:47.642519 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: Close
+[0m00:12:47.649661 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcc8f5f30>]}
+[0m00:12:47.654111 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcde36fb0>]}
+[0m00:12:47.658137 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fce0f8d00>]}
+[0m00:12:47.661782 [info ] [Thread-1 (]: 1 of 6 OK created sql view model staging.stg_colis ............................. [[32mCREATE VIEW[0m in 0.72s]
+[0m00:12:47.666150 [info ] [Thread-2 (]: 2 of 6 OK created sql view model staging.stg_commandes ......................... [[32mCREATE VIEW[0m in 0.72s]
+[0m00:12:47.670448 [info ] [Thread-3 (]: 3 of 6 OK created sql view model staging.stg_statuts_livraison ................. [[32mCREATE VIEW[0m in 0.72s]
+[0m00:12:47.674229 [debug] [Thread-1 (]: Finished running node model.livraison.stg_colis
+[0m00:12:47.681492 [debug] [Thread-2 (]: Finished running node model.livraison.stg_commandes
+[0m00:12:47.685554 [debug] [Thread-3 (]: Finished running node model.livraison.stg_statuts_livraison
+[0m00:12:47.692582 [debug] [Thread-4 (]: Began running node model.livraison.mart_incidents
+[0m00:12:47.700838 [debug] [Thread-1 (]: Began running node model.livraison.int_livraisons_enrichies
+[0m00:12:47.703585 [info ] [Thread-4 (]: 4 of 6 START sql table model marts.mart_incidents .............................. [RUN]
+[0m00:12:47.708276 [info ] [Thread-1 (]: 5 of 6 START sql view model intermediate.int_livraisons_enrichies .............. [RUN]
+[0m00:12:47.716422 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.livraison.mart_incidents'
+[0m00:12:47.720879 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.livraison.stg_colis, now model.livraison.int_livraisons_enrichies)
+[0m00:12:47.724100 [debug] [Thread-4 (]: Began compiling node model.livraison.mart_incidents
+[0m00:12:47.728262 [debug] [Thread-1 (]: Began compiling node model.livraison.int_livraisons_enrichies
+[0m00:12:47.740219 [debug] [Thread-4 (]: Writing injected SQL for node "model.livraison.mart_incidents"
+[0m00:12:47.752040 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.int_livraisons_enrichies"
+[0m00:12:47.771406 [debug] [Thread-4 (]: Timing info for model.livraison.mart_incidents (compile): 00:12:47.731384 => 00:12:47.770681
+[0m00:12:47.773808 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (compile): 00:12:47.742383 => 00:12:47.772547
+[0m00:12:47.777223 [debug] [Thread-4 (]: Began executing node model.livraison.mart_incidents
+[0m00:12:47.783388 [debug] [Thread-1 (]: Began executing node model.livraison.int_livraisons_enrichies
+[0m00:12:47.919122 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.int_livraisons_enrichies"
+[0m00:12:47.960111 [debug] [Thread-4 (]: Writing runtime sql for node "model.livraison.mart_incidents"
+[0m00:12:47.966893 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:12:47.970488 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: BEGIN
+[0m00:12:47.974579 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:12:47.977723 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:12:47.981677 [debug] [Thread-4 (]: On model.livraison.mart_incidents: BEGIN
+[0m00:12:47.984879 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:12:48.000907 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:48.004143 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:12:48.009567 [debug] [Thread-4 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:48.011666 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+
+  create view "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_tmp"
+    
+    
+  as (
+    -- Intermediaire : joint colis + statuts + commande
+with colis as (
+    select * from "livraison_db"."staging"."stg_colis"
+),
+commandes as (
+    select * from "livraison_db"."staging"."stg_commandes"
+),
+derniers_statuts as (
+    select distinct on (colis_id)
+        colis_id,
+        statut        as dernier_statut,
+        statut_ts     as derniere_maj,
+        localisation
+    from "livraison_db"."staging"."stg_statuts_livraison"
+    order by colis_id, statut_ts desc
+)
+select
+    c.colis_id,
+    c.reference_tracking,
+    c.poids_kg,
+    c.statut_actuel,
+    com.commande_id,
+    com.commande_ts,
+    com.montant_total,
+    ds.dernier_statut,
+    ds.derniere_maj,
+    ds.localisation
+from colis c
+left join commandes com using (commande_id)
+left join derniers_statuts ds using (colis_id)
+  );
+[0m00:12:48.014998 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:12:48.019384 [debug] [Thread-4 (]: On model.livraison.mart_incidents: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_incidents"} */
+
+  
+    
+
+  create  table "livraison_db"."marts"."mart_incidents__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart : synthese des incidents et alertes
+with incidents as (
+    select * from "livraison_db"."public"."incident"
+),
+colis as (
+    select * from "livraison_db"."staging"."stg_colis"
+)
+select
+    i.id            as incident_id,
+    i.colis_id,
+    c.reference_tracking,
+    i.type_incident,
+    i.priorite,
+    i.description,
+    i.signale_le::date as date_incident,
+    i.statut
+from incidents i
+left join colis c using (colis_id)
+order by i.signale_le desc
+  );
+  
+[0m00:12:48.025286 [debug] [Thread-4 (]: Postgres adapter: Postgres error: relation "public.incident" does not exist
+LINE 14:     select * from "livraison_db"."public"."incident"
+                           ^
+
+[0m00:12:48.027295 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:12:48.030131 [debug] [Thread-4 (]: On model.livraison.mart_incidents: ROLLBACK
+[0m00:12:48.042728 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:12:48.046576 [debug] [Thread-4 (]: Timing info for model.livraison.mart_incidents (execute): 00:12:47.786131 => 00:12:48.045799
+[0m00:12:48.048396 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+alter table "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_tmp" rename to "int_livraisons_enrichies"
+[0m00:12:48.051239 [debug] [Thread-4 (]: On model.livraison.mart_incidents: Close
+[0m00:12:48.055666 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:12:48.064648 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:12:48.068421 [debug] [Thread-4 (]: Database Error in model mart_incidents (models/marts/mart_incidents.sql)
+  relation "public.incident" does not exist
+  LINE 14:     select * from "livraison_db"."public"."incident"
+                             ^
+  compiled Code at target/run/livraison/models/marts/mart_incidents.sql
+[0m00:12:48.069616 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:12:48.073031 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcc926380>]}
+[0m00:12:48.077070 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:12:48.081536 [error] [Thread-4 (]: 4 of 6 ERROR creating sql table model marts.mart_incidents ..................... [[31mERROR[0m in 0.36s]
+[0m00:12:48.088368 [debug] [Thread-4 (]: Finished running node model.livraison.mart_incidents
+[0m00:12:48.090596 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:48.102664 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_backup"
+[0m00:12:48.108029 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:12:48.111686 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+drop view if exists "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_backup" cascade
+[0m00:12:48.116472 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:12:48.123950 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (execute): 00:12:47.897299 => 00:12:48.122642
+[0m00:12:48.128188 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: Close
+[0m00:12:48.133676 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcde40e50>]}
+[0m00:12:48.137465 [info ] [Thread-1 (]: 5 of 6 OK created sql view model intermediate.int_livraisons_enrichies ......... [[32mCREATE VIEW[0m in 0.41s]
+[0m00:12:48.143529 [debug] [Thread-1 (]: Finished running node model.livraison.int_livraisons_enrichies
+[0m00:12:48.149106 [debug] [Thread-3 (]: Began running node model.livraison.mart_performance_livraisons
+[0m00:12:48.152888 [info ] [Thread-3 (]: 6 of 6 START sql table model marts.mart_performance_livraisons ................. [RUN]
+[0m00:12:48.157566 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.livraison.stg_statuts_livraison, now model.livraison.mart_performance_livraisons)
+[0m00:12:48.161084 [debug] [Thread-3 (]: Began compiling node model.livraison.mart_performance_livraisons
+[0m00:12:48.171058 [debug] [Thread-3 (]: Writing injected SQL for node "model.livraison.mart_performance_livraisons"
+[0m00:12:48.196950 [debug] [Thread-3 (]: Timing info for model.livraison.mart_performance_livraisons (compile): 00:12:48.163945 => 00:12:48.196342
+[0m00:12:48.198912 [debug] [Thread-3 (]: Began executing node model.livraison.mart_performance_livraisons
+[0m00:12:48.210512 [debug] [Thread-3 (]: Writing runtime sql for node "model.livraison.mart_performance_livraisons"
+[0m00:12:48.227341 [debug] [Thread-3 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:12:48.229215 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: BEGIN
+[0m00:12:48.231312 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:12:48.245879 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:48.247905 [debug] [Thread-3 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:12:48.249728 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+
+  
+    
+
+  create  table "livraison_db"."marts"."mart_performance_livraisons__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart analytique : KPI de performance des livraisons
+-- Utilise par le DAG rapport_journalier et les dashboards
+with livraisons as (
+    select * from "livraison_db"."intermediate"."int_livraisons_enrichies"
+),
+agregats as (
+    select
+        date_trunc('day', commande_ts)::date            as jour,
+        count(*)                                        as nb_livraisons_total,
+        count(*) filter (where dernier_statut = 'livre') as nb_livrees,
+        count(*) filter (where dernier_statut = 'echec') as nb_echecs,
+        round(
+            count(*) filter (where dernier_statut = 'livre')
+            * 100.0 / nullif(count(*), 0), 2
+        )                                               as taux_succes_pct,
+        avg(poids_kg)                                   as poids_moyen_kg,
+        sum(montant_total)                              as ca_journalier
+    from livraisons
+    group by 1
+)
+select * from agregats order by jour desc
+  );
+  
+[0m00:12:48.264298 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:12:48.270551 [debug] [Thread-3 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:12:48.272880 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+alter table "livraison_db"."marts"."mart_performance_livraisons__dbt_tmp" rename to "mart_performance_livraisons"
+[0m00:12:48.275709 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:12:48.287597 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:12:48.289621 [debug] [Thread-3 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:12:48.291214 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:12:48.294901 [debug] [Thread-3 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:48.299803 [debug] [Thread-3 (]: Applying DROP to: "livraison_db"."marts"."mart_performance_livraisons__dbt_backup"
+[0m00:12:48.305046 [debug] [Thread-3 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:12:48.308132 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+drop table if exists "livraison_db"."marts"."mart_performance_livraisons__dbt_backup" cascade
+[0m00:12:48.310389 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m00:12:48.313915 [debug] [Thread-3 (]: Timing info for model.livraison.mart_performance_livraisons (execute): 00:12:48.200601 => 00:12:48.313576
+[0m00:12:48.316671 [debug] [Thread-3 (]: On model.livraison.mart_performance_livraisons: Close
+[0m00:12:48.320535 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cf32221a-68cc-41e3-80e3-eaf6c3212102', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fa4f53fa0>]}
+[0m00:12:48.324223 [info ] [Thread-3 (]: 6 of 6 OK created sql table model marts.mart_performance_livraisons ............ [[32mSELECT 1[0m in 0.16s]
+[0m00:12:48.328404 [debug] [Thread-3 (]: Finished running node model.livraison.mart_performance_livraisons
+[0m00:12:48.337139 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:48.342841 [debug] [MainThread]: On master: BEGIN
+[0m00:12:48.345665 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:12:48.366531 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:12:48.369670 [debug] [MainThread]: On master: COMMIT
+[0m00:12:48.374836 [debug] [MainThread]: Using postgres connection "master"
+[0m00:12:48.377805 [debug] [MainThread]: On master: COMMIT
+[0m00:12:48.381426 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:12:48.384242 [debug] [MainThread]: On master: Close
+[0m00:12:48.388071 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:12:48.391008 [debug] [MainThread]: Connection 'model.livraison.mart_performance_livraisons' was properly closed.
+[0m00:12:48.393952 [debug] [MainThread]: Connection 'model.livraison.stg_commandes' was properly closed.
+[0m00:12:48.396614 [debug] [MainThread]: Connection 'model.livraison.int_livraisons_enrichies' was properly closed.
+[0m00:12:48.399270 [debug] [MainThread]: Connection 'model.livraison.mart_incidents' was properly closed.
+[0m00:12:48.402318 [info ] [MainThread]: 
+[0m00:12:48.405652 [info ] [MainThread]: Finished running 4 view models, 2 table models in 0 hours 0 minutes and 1.84 seconds (1.84s).
+[0m00:12:48.418742 [debug] [MainThread]: Command end result
+[0m00:12:48.490600 [info ] [MainThread]: 
+[0m00:12:48.494190 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m00:12:48.497492 [info ] [MainThread]: 
+[0m00:12:48.500718 [error] [MainThread]:   Database Error in model mart_incidents (models/marts/mart_incidents.sql)
+  relation "public.incident" does not exist
+  LINE 14:     select * from "livraison_db"."public"."incident"
+                             ^
+  compiled Code at target/run/livraison/models/marts/mart_incidents.sql
+[0m00:12:48.504443 [info ] [MainThread]: 
+[0m00:12:48.510376 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=1 SKIP=0 TOTAL=6
+[0m00:12:48.516083 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 4.23282, "process_user_time": 5.95333, "process_kernel_time": 0.454205, "process_mem_max_rss": "116576", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m00:12:48.519765 [debug] [MainThread]: Command `dbt run` failed at 00:12:48.519340 after 4.24 seconds
+[0m00:12:48.523758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fd1bfb340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcde5a5f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e8fcde5ae30>]}
+[0m00:12:48.527580 [debug] [MainThread]: Flushing usage events
+[0m00:13:37.017050 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59b0d2f370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59aeab1ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59aeab1f90>]}
+
+
+============================== 00:13:37.020719 | 8d6c30cf-bdb7-4113-8870-1a99a76cb9fc ==============================
+[0m00:13:37.020719 [info ] [MainThread]: Running with dbt=1.7.0
+[0m00:13:37.022566 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:13:37.282514 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59aea14eb0>]}
+[0m00:13:37.419153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59aeab2020>]}
+[0m00:13:37.421551 [info ] [MainThread]: Registered adapter: postgres=1.7.0
+[0m00:13:37.445012 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m00:13:37.695839 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:13:37.698045 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:13:37.707010 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59ace400d0>]}
+[0m00:13:37.744859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acffaa40>]}
+[0m00:13:37.746823 [info ] [MainThread]: Found 6 models, 8 tests, 10 sources, 0 exposures, 0 metrics, 402 macros, 0 groups, 0 semantic models
+[0m00:13:37.748547 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acffa650>]}
+[0m00:13:37.753478 [info ] [MainThread]: 
+[0m00:13:37.755827 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m00:13:37.760937 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:13:37.762665 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:13:37.764674 [debug] [ThreadPool]: Acquiring new postgres connection 'list_livraison_db'
+[0m00:13:37.778868 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:13:37.782052 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:13:37.785635 [debug] [ThreadPool]: Using postgres connection "list_livraison_db"
+[0m00:13:37.787081 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:13:37.788579 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:13:37.790077 [debug] [ThreadPool]: On list_livraison_db: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m00:13:37.792715 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:13:37.794483 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:13:37.796106 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:13:37.811469 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.0 seconds
+[0m00:13:37.812045 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.0 seconds
+[0m00:13:37.812593 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.0 seconds
+[0m00:13:37.815508 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:13:37.818050 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:13:37.820687 [debug] [ThreadPool]: On list_livraison_db: Close
+[0m00:13:37.830348 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now list_livraison_db_marts)
+[0m00:13:37.831735 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now list_livraison_db_staging)
+[0m00:13:37.833100 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_livraison_db, now list_livraison_db_intermediate)
+[0m00:13:37.842466 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_marts"
+[0m00:13:37.846897 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_staging"
+[0m00:13:37.850873 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_intermediate"
+[0m00:13:37.852491 [debug] [ThreadPool]: On list_livraison_db_marts: BEGIN
+[0m00:13:37.854129 [debug] [ThreadPool]: On list_livraison_db_staging: BEGIN
+[0m00:13:37.855483 [debug] [ThreadPool]: On list_livraison_db_intermediate: BEGIN
+[0m00:13:37.857112 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:13:37.859801 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:13:37.861625 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:13:37.876853 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:37.879127 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:37.880040 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:37.880686 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_intermediate"
+[0m00:13:37.882283 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_marts"
+[0m00:13:37.883954 [debug] [ThreadPool]: Using postgres connection "list_livraison_db_staging"
+[0m00:13:37.885701 [debug] [ThreadPool]: On list_livraison_db_intermediate: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_intermediate"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'intermediate'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'intermediate'
+  
+[0m00:13:37.887526 [debug] [ThreadPool]: On list_livraison_db_marts: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_marts"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'marts'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'marts'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'marts'
+  
+[0m00:13:37.889230 [debug] [ThreadPool]: On list_livraison_db_staging: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "list_livraison_db_staging"} */
+select
+      'livraison_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'livraison_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'livraison_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m00:13:37.897498 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:13:37.898220 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:13:37.901290 [debug] [ThreadPool]: On list_livraison_db_intermediate: ROLLBACK
+[0m00:13:37.901858 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.0 seconds
+[0m00:13:37.904681 [debug] [ThreadPool]: On list_livraison_db_marts: ROLLBACK
+[0m00:13:37.906411 [debug] [ThreadPool]: On list_livraison_db_intermediate: Close
+[0m00:13:37.909144 [debug] [ThreadPool]: On list_livraison_db_staging: ROLLBACK
+[0m00:13:37.911272 [debug] [ThreadPool]: On list_livraison_db_marts: Close
+[0m00:13:37.914570 [debug] [ThreadPool]: On list_livraison_db_staging: Close
+[0m00:13:37.925026 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:37.926745 [debug] [MainThread]: On master: BEGIN
+[0m00:13:37.928455 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:13:37.938896 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:37.940792 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:37.942312 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m00:13:37.950070 [debug] [MainThread]: SQL status: SELECT 12 in 0.0 seconds
+[0m00:13:37.953288 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59ace6bbe0>]}
+[0m00:13:37.954928 [debug] [MainThread]: On master: ROLLBACK
+[0m00:13:37.956385 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:37.958712 [debug] [MainThread]: On master: BEGIN
+[0m00:13:37.960733 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:37.962256 [debug] [MainThread]: On master: COMMIT
+[0m00:13:37.963566 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:37.964595 [debug] [MainThread]: On master: COMMIT
+[0m00:13:37.965910 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:37.967077 [debug] [MainThread]: On master: Close
+[0m00:13:37.968582 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:13:37.969931 [info ] [MainThread]: 
+[0m00:13:37.975435 [debug] [Thread-1 (]: Began running node model.livraison.stg_colis
+[0m00:13:37.976018 [debug] [Thread-2 (]: Began running node model.livraison.stg_commandes
+[0m00:13:37.976587 [debug] [Thread-3 (]: Began running node model.livraison.stg_statuts_livraison
+[0m00:13:37.977638 [info ] [Thread-1 (]: 1 of 6 START sql view model staging.stg_colis .................................. [RUN]
+[0m00:13:37.979111 [info ] [Thread-2 (]: 2 of 6 START sql view model staging.stg_commandes .............................. [RUN]
+[0m00:13:37.980691 [info ] [Thread-3 (]: 3 of 6 START sql view model staging.stg_statuts_livraison ...................... [RUN]
+[0m00:13:37.982592 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_livraison_db_staging, now model.livraison.stg_colis)
+[0m00:13:37.984157 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_livraison_db_marts, now model.livraison.stg_commandes)
+[0m00:13:37.985682 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_livraison_db_intermediate, now model.livraison.stg_statuts_livraison)
+[0m00:13:37.986852 [debug] [Thread-1 (]: Began compiling node model.livraison.stg_colis
+[0m00:13:37.988088 [debug] [Thread-2 (]: Began compiling node model.livraison.stg_commandes
+[0m00:13:37.989226 [debug] [Thread-3 (]: Began compiling node model.livraison.stg_statuts_livraison
+[0m00:13:38.000920 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.stg_colis"
+[0m00:13:38.004742 [debug] [Thread-2 (]: Writing injected SQL for node "model.livraison.stg_commandes"
+[0m00:13:38.009473 [debug] [Thread-3 (]: Writing injected SQL for node "model.livraison.stg_statuts_livraison"
+[0m00:13:38.017546 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (compile): 00:13:38.001850 => 00:13:38.017153
+[0m00:13:38.019177 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (compile): 00:13:38.005984 => 00:13:38.018652
+[0m00:13:38.020119 [debug] [Thread-2 (]: Began executing node model.livraison.stg_commandes
+[0m00:13:38.020994 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (compile): 00:13:37.990308 => 00:13:38.020632
+[0m00:13:38.022240 [debug] [Thread-3 (]: Began executing node model.livraison.stg_statuts_livraison
+[0m00:13:38.046010 [debug] [Thread-1 (]: Began executing node model.livraison.stg_colis
+[0m00:13:38.070359 [debug] [Thread-2 (]: Writing runtime sql for node "model.livraison.stg_commandes"
+[0m00:13:38.075705 [debug] [Thread-3 (]: Writing runtime sql for node "model.livraison.stg_statuts_livraison"
+[0m00:13:38.082591 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.stg_colis"
+[0m00:13:38.090565 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.091868 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.093885 [debug] [Thread-2 (]: On model.livraison.stg_commandes: BEGIN
+[0m00:13:38.094759 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.095918 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: BEGIN
+[0m00:13:38.097485 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:13:38.099009 [debug] [Thread-1 (]: On model.livraison.stg_colis: BEGIN
+[0m00:13:38.100682 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:13:38.103071 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:13:38.112562 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.114354 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.115061 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.116491 [debug] [Thread-3 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.117094 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+
+  create view "livraison_db"."staging"."stg_commandes__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage et typage de la table source COMMANDE
+with source as (
+    select * from "livraison_db"."public"."commande"
+),
+renamed as (
+    select
+        id                          as commande_id,
+        client_id,
+        date_commande::timestamp    as commande_ts,
+        lower(trim(statut))         as statut,
+        montant_total::numeric(10,2) as montant_total,
+        created_at,
+        updated_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:13:38.118663 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.120194 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.122411 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+
+  create view "livraison_db"."staging"."stg_colis__dbt_tmp"
+    
+    
+  as (
+    -- Staging : nettoyage de la table COLIS
+with source as (
+    select * from "livraison_db"."public"."colis"
+),
+renamed as (
+    select
+        id                       as colis_id,
+        commande_id,
+        tournee_id,
+        reference_tracking,
+        poids_kg::numeric(6,2)   as poids_kg,
+        lower(statut_actuel)     as statut_actuel,
+        created_at
+    from source
+    where id is not null
+)
+select * from renamed
+  );
+[0m00:13:38.124145 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+
+  create view "livraison_db"."staging"."stg_statuts_livraison__dbt_tmp"
+    
+    
+  as (
+    -- Staging : historique des statuts de chaque colis
+with source as (
+    select * from "livraison_db"."public"."statut_livraison"
+),
+renamed as (
+    select
+        id                    as statut_id,
+        colis_id,
+        lower(statut)         as statut,
+        horodatage::timestamp as statut_ts,
+        localisation
+    from source
+)
+select * from renamed
+  );
+[0m00:13:38.125392 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:13:38.129419 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:13:38.130891 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:13:38.139099 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.144002 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.148770 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.150113 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+alter table "livraison_db"."staging"."stg_commandes" rename to "stg_commandes__dbt_backup"
+[0m00:13:38.151643 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+alter table "livraison_db"."staging"."stg_colis" rename to "stg_colis__dbt_backup"
+[0m00:13:38.152982 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+alter table "livraison_db"."staging"."stg_statuts_livraison" rename to "stg_statuts_livraison__dbt_backup"
+[0m00:13:38.155130 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.156612 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.159241 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.163923 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.169824 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.221459 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.223724 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+alter table "livraison_db"."staging"."stg_commandes__dbt_tmp" rename to "stg_commandes"
+[0m00:13:38.226711 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+alter table "livraison_db"."staging"."stg_colis__dbt_tmp" rename to "stg_colis"
+[0m00:13:38.229853 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+alter table "livraison_db"."staging"."stg_statuts_livraison__dbt_tmp" rename to "stg_statuts_livraison"
+[0m00:13:38.233187 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.235556 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.237813 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.293999 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:13:38.295457 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:13:38.298387 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:13:38.300430 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.302780 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.304932 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.307182 [debug] [Thread-1 (]: On model.livraison.stg_colis: COMMIT
+[0m00:13:38.309920 [debug] [Thread-2 (]: On model.livraison.stg_commandes: COMMIT
+[0m00:13:38.312116 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: COMMIT
+[0m00:13:38.318249 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.319557 [debug] [Thread-3 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.320309 [debug] [Thread-2 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.333543 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."staging"."stg_colis__dbt_backup"
+[0m00:13:38.338639 [debug] [Thread-3 (]: Applying DROP to: "livraison_db"."staging"."stg_statuts_livraison__dbt_backup"
+[0m00:13:38.344663 [debug] [Thread-2 (]: Applying DROP to: "livraison_db"."staging"."stg_commandes__dbt_backup"
+[0m00:13:38.354200 [debug] [Thread-1 (]: Using postgres connection "model.livraison.stg_colis"
+[0m00:13:38.357290 [debug] [Thread-3 (]: Using postgres connection "model.livraison.stg_statuts_livraison"
+[0m00:13:38.360904 [debug] [Thread-2 (]: Using postgres connection "model.livraison.stg_commandes"
+[0m00:13:38.363513 [debug] [Thread-1 (]: On model.livraison.stg_colis: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_colis"} */
+drop view if exists "livraison_db"."staging"."stg_colis__dbt_backup" cascade
+[0m00:13:38.365460 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_statuts_livraison"} */
+drop view if exists "livraison_db"."staging"."stg_statuts_livraison__dbt_backup" cascade
+[0m00:13:38.367530 [debug] [Thread-2 (]: On model.livraison.stg_commandes: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.stg_commandes"} */
+drop view if exists "livraison_db"."staging"."stg_commandes__dbt_backup" cascade
+[0m00:13:38.377492 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:13:38.381701 [debug] [Thread-1 (]: Timing info for model.livraison.stg_colis (execute): 00:13:38.077066 => 00:13:38.381294
+[0m00:13:38.382445 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:13:38.383113 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:13:38.384794 [debug] [Thread-1 (]: On model.livraison.stg_colis: Close
+[0m00:13:38.388478 [debug] [Thread-3 (]: Timing info for model.livraison.stg_statuts_livraison (execute): 00:13:38.070754 => 00:13:38.388131
+[0m00:13:38.393320 [debug] [Thread-2 (]: Timing info for model.livraison.stg_commandes (execute): 00:13:38.023777 => 00:13:38.392964
+[0m00:13:38.396358 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59ace78070>]}
+[0m00:13:38.398099 [debug] [Thread-3 (]: On model.livraison.stg_statuts_livraison: Close
+[0m00:13:38.400139 [debug] [Thread-2 (]: On model.livraison.stg_commandes: Close
+[0m00:13:38.402610 [info ] [Thread-1 (]: 1 of 6 OK created sql view model staging.stg_colis ............................. [[32mCREATE VIEW[0m in 0.41s]
+[0m00:13:38.405917 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59ace8d4e0>]}
+[0m00:13:38.408828 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59ad1febf0>]}
+[0m00:13:38.410861 [debug] [Thread-1 (]: Finished running node model.livraison.stg_colis
+[0m00:13:38.413063 [info ] [Thread-3 (]: 3 of 6 OK created sql view model staging.stg_statuts_livraison ................. [[32mCREATE VIEW[0m in 0.42s]
+[0m00:13:38.415120 [info ] [Thread-2 (]: 2 of 6 OK created sql view model staging.stg_commandes ......................... [[32mCREATE VIEW[0m in 0.42s]
+[0m00:13:38.417844 [debug] [Thread-4 (]: Began running node model.livraison.mart_incidents
+[0m00:13:38.419466 [debug] [Thread-3 (]: Finished running node model.livraison.stg_statuts_livraison
+[0m00:13:38.421272 [debug] [Thread-2 (]: Finished running node model.livraison.stg_commandes
+[0m00:13:38.422841 [info ] [Thread-4 (]: 4 of 6 START sql table model marts.mart_incidents .............................. [RUN]
+[0m00:13:38.428932 [debug] [Thread-1 (]: Began running node model.livraison.int_livraisons_enrichies
+[0m00:13:38.430450 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.livraison.mart_incidents'
+[0m00:13:38.432143 [info ] [Thread-1 (]: 5 of 6 START sql view model intermediate.int_livraisons_enrichies .............. [RUN]
+[0m00:13:38.433411 [debug] [Thread-4 (]: Began compiling node model.livraison.mart_incidents
+[0m00:13:38.435112 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.livraison.stg_colis, now model.livraison.int_livraisons_enrichies)
+[0m00:13:38.439934 [debug] [Thread-4 (]: Writing injected SQL for node "model.livraison.mart_incidents"
+[0m00:13:38.441830 [debug] [Thread-1 (]: Began compiling node model.livraison.int_livraisons_enrichies
+[0m00:13:38.447560 [debug] [Thread-1 (]: Writing injected SQL for node "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.452284 [debug] [Thread-4 (]: Timing info for model.livraison.mart_incidents (compile): 00:13:38.436166 => 00:13:38.451871
+[0m00:13:38.453687 [debug] [Thread-4 (]: Began executing node model.livraison.mart_incidents
+[0m00:13:38.454371 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (compile): 00:13:38.443872 => 00:13:38.454056
+[0m00:13:38.477204 [debug] [Thread-1 (]: Began executing node model.livraison.int_livraisons_enrichies
+[0m00:13:38.485120 [debug] [Thread-4 (]: Writing runtime sql for node "model.livraison.mart_incidents"
+[0m00:13:38.491141 [debug] [Thread-1 (]: Writing runtime sql for node "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.500652 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:13:38.501356 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.502494 [debug] [Thread-4 (]: On model.livraison.mart_incidents: BEGIN
+[0m00:13:38.503757 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: BEGIN
+[0m00:13:38.505264 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:13:38.506421 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:13:38.516053 [debug] [Thread-4 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.517383 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.518473 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:13:38.519927 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.521289 [debug] [Thread-4 (]: On model.livraison.mart_incidents: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_incidents"} */
+
+  
+    
+
+  create  table "livraison_db"."marts"."mart_incidents__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart : synthese des incidents et alertes
+with incidents as (
+    select * from "livraison_db"."public"."incident"
+),
+colis as (
+    select * from "livraison_db"."staging"."stg_colis"
+)
+select
+    i.id            as incident_id,
+    i.colis_id,
+    c.reference_tracking,
+    i.type_incident,
+    i.priorite,
+    i.description,
+    i.signale_le::date as date_incident,
+    i.statut
+from incidents i
+left join colis c using (colis_id)
+order by i.signale_le desc
+  );
+  
+[0m00:13:38.522481 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+
+  create view "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_tmp"
+    
+    
+  as (
+    -- Intermediaire : joint colis + statuts + commande
+with colis as (
+    select * from "livraison_db"."staging"."stg_colis"
+),
+commandes as (
+    select * from "livraison_db"."staging"."stg_commandes"
+),
+derniers_statuts as (
+    select distinct on (colis_id)
+        colis_id,
+        statut        as dernier_statut,
+        statut_ts     as derniere_maj,
+        localisation
+    from "livraison_db"."staging"."stg_statuts_livraison"
+    order by colis_id, statut_ts desc
+)
+select
+    c.colis_id,
+    c.reference_tracking,
+    c.poids_kg,
+    c.statut_actuel,
+    com.commande_id,
+    com.commande_ts,
+    com.montant_total,
+    ds.dernier_statut,
+    ds.derniere_maj,
+    ds.localisation
+from colis c
+left join commandes com using (commande_id)
+left join derniers_statuts ds using (colis_id)
+  );
+[0m00:13:38.529533 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.0 seconds
+[0m00:13:38.534266 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.534804 [debug] [Thread-4 (]: SQL status: SELECT 3 in 0.0 seconds
+[0m00:13:38.535847 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+alter table "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_tmp" rename to "int_livraisons_enrichies"
+[0m00:13:38.540431 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:13:38.542690 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.543642 [debug] [Thread-4 (]: On model.livraison.mart_incidents: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_incidents"} */
+alter table "livraison_db"."marts"."mart_incidents__dbt_tmp" rename to "mart_incidents"
+[0m00:13:38.548972 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:13:38.553047 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.554923 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.570658 [debug] [Thread-4 (]: On model.livraison.mart_incidents: COMMIT
+[0m00:13:38.572229 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: COMMIT
+[0m00:13:38.574225 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:13:38.576938 [debug] [Thread-4 (]: On model.livraison.mart_incidents: COMMIT
+[0m00:13:38.577564 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.582974 [debug] [Thread-1 (]: Applying DROP to: "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_backup"
+[0m00:13:38.583618 [debug] [Thread-4 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.585307 [debug] [Thread-1 (]: Using postgres connection "model.livraison.int_livraisons_enrichies"
+[0m00:13:38.589387 [debug] [Thread-4 (]: Applying DROP to: "livraison_db"."marts"."mart_incidents__dbt_backup"
+[0m00:13:38.591708 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.int_livraisons_enrichies"} */
+drop view if exists "livraison_db"."intermediate"."int_livraisons_enrichies__dbt_backup" cascade
+[0m00:13:38.596616 [debug] [Thread-4 (]: Using postgres connection "model.livraison.mart_incidents"
+[0m00:13:38.598750 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.0 seconds
+[0m00:13:38.599614 [debug] [Thread-4 (]: On model.livraison.mart_incidents: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_incidents"} */
+drop table if exists "livraison_db"."marts"."mart_incidents__dbt_backup" cascade
+[0m00:13:38.602739 [debug] [Thread-1 (]: Timing info for model.livraison.int_livraisons_enrichies (execute): 00:13:38.486186 => 00:13:38.602493
+[0m00:13:38.604847 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m00:13:38.605824 [debug] [Thread-1 (]: On model.livraison.int_livraisons_enrichies: Close
+[0m00:13:38.608944 [debug] [Thread-4 (]: Timing info for model.livraison.mart_incidents (execute): 00:13:38.455056 => 00:13:38.608672
+[0m00:13:38.611122 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acff92d0>]}
+[0m00:13:38.612580 [debug] [Thread-4 (]: On model.livraison.mart_incidents: Close
+[0m00:13:38.614358 [info ] [Thread-1 (]: 5 of 6 OK created sql view model intermediate.int_livraisons_enrichies ......... [[32mCREATE VIEW[0m in 0.18s]
+[0m00:13:38.616512 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acdd7a00>]}
+[0m00:13:38.618127 [debug] [Thread-1 (]: Finished running node model.livraison.int_livraisons_enrichies
+[0m00:13:38.619920 [info ] [Thread-4 (]: 4 of 6 OK created sql table model marts.mart_incidents ......................... [[32mSELECT 3[0m in 0.19s]
+[0m00:13:38.621975 [debug] [Thread-2 (]: Began running node model.livraison.mart_performance_livraisons
+[0m00:13:38.623032 [debug] [Thread-4 (]: Finished running node model.livraison.mart_incidents
+[0m00:13:38.627047 [info ] [Thread-2 (]: 6 of 6 START sql table model marts.mart_performance_livraisons ................. [RUN]
+[0m00:13:38.629962 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.livraison.stg_commandes, now model.livraison.mart_performance_livraisons)
+[0m00:13:38.631287 [debug] [Thread-2 (]: Began compiling node model.livraison.mart_performance_livraisons
+[0m00:13:38.635394 [debug] [Thread-2 (]: Writing injected SQL for node "model.livraison.mart_performance_livraisons"
+[0m00:13:38.645287 [debug] [Thread-2 (]: Timing info for model.livraison.mart_performance_livraisons (compile): 00:13:38.632190 => 00:13:38.644884
+[0m00:13:38.646500 [debug] [Thread-2 (]: Began executing node model.livraison.mart_performance_livraisons
+[0m00:13:38.653572 [debug] [Thread-2 (]: Writing runtime sql for node "model.livraison.mart_performance_livraisons"
+[0m00:13:38.666667 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.667833 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: BEGIN
+[0m00:13:38.668773 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:13:38.678308 [debug] [Thread-2 (]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.680096 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.681466 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+
+  
+    
+
+  create  table "livraison_db"."marts"."mart_performance_livraisons__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- Mart analytique : KPI de performance des livraisons
+-- Utilise par le DAG rapport_journalier et les dashboards
+with livraisons as (
+    select * from "livraison_db"."intermediate"."int_livraisons_enrichies"
+),
+agregats as (
+    select
+        date_trunc('day', commande_ts)::date            as jour,
+        count(*)                                        as nb_livraisons_total,
+        count(*) filter (where dernier_statut = 'livre') as nb_livrees,
+        count(*) filter (where dernier_statut = 'echec') as nb_echecs,
+        round(
+            count(*) filter (where dernier_statut = 'livre')
+            * 100.0 / nullif(count(*), 0), 2
+        )                                               as taux_succes_pct,
+        avg(poids_kg)                                   as poids_moyen_kg,
+        sum(montant_total)                              as ca_journalier
+    from livraisons
+    group by 1
+)
+select * from agregats order by jour desc
+  );
+  
+[0m00:13:38.692355 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.0 seconds
+[0m00:13:38.697277 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.698819 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+alter table "livraison_db"."marts"."mart_performance_livraisons" rename to "mart_performance_livraisons__dbt_backup"
+[0m00:13:38.701989 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.712273 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.715173 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+alter table "livraison_db"."marts"."mart_performance_livraisons__dbt_tmp" rename to "mart_performance_livraisons"
+[0m00:13:38.718717 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m00:13:38.726640 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:13:38.729922 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.733025 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: COMMIT
+[0m00:13:38.738770 [debug] [Thread-2 (]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.747950 [debug] [Thread-2 (]: Applying DROP to: "livraison_db"."marts"."mart_performance_livraisons__dbt_backup"
+[0m00:13:38.751965 [debug] [Thread-2 (]: Using postgres connection "model.livraison.mart_performance_livraisons"
+[0m00:13:38.754703 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "livraison", "target_name": "dev", "node_id": "model.livraison.mart_performance_livraisons"} */
+drop table if exists "livraison_db"."marts"."mart_performance_livraisons__dbt_backup" cascade
+[0m00:13:38.761975 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m00:13:38.765482 [debug] [Thread-2 (]: Timing info for model.livraison.mart_performance_livraisons (execute): 00:13:38.647647 => 00:13:38.765204
+[0m00:13:38.766839 [debug] [Thread-2 (]: On model.livraison.mart_performance_livraisons: Close
+[0m00:13:38.768847 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8d6c30cf-bdb7-4113-8870-1a99a76cb9fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acd4c190>]}
+[0m00:13:38.770624 [info ] [Thread-2 (]: 6 of 6 OK created sql table model marts.mart_performance_livraisons ............ [[32mSELECT 1[0m in 0.14s]
+[0m00:13:38.772465 [debug] [Thread-2 (]: Finished running node model.livraison.mart_performance_livraisons
+[0m00:13:38.776173 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:38.777385 [debug] [MainThread]: On master: BEGIN
+[0m00:13:38.778591 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:13:38.787846 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m00:13:38.789432 [debug] [MainThread]: On master: COMMIT
+[0m00:13:38.792579 [debug] [MainThread]: Using postgres connection "master"
+[0m00:13:38.793834 [debug] [MainThread]: On master: COMMIT
+[0m00:13:38.795339 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m00:13:38.796469 [debug] [MainThread]: On master: Close
+[0m00:13:38.798045 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:13:38.799656 [debug] [MainThread]: Connection 'model.livraison.stg_statuts_livraison' was properly closed.
+[0m00:13:38.801259 [debug] [MainThread]: Connection 'model.livraison.mart_performance_livraisons' was properly closed.
+[0m00:13:38.802514 [debug] [MainThread]: Connection 'model.livraison.int_livraisons_enrichies' was properly closed.
+[0m00:13:38.803615 [debug] [MainThread]: Connection 'model.livraison.mart_incidents' was properly closed.
+[0m00:13:38.804737 [info ] [MainThread]: 
+[0m00:13:38.805975 [info ] [MainThread]: Finished running 4 view models, 2 table models in 0 hours 0 minutes and 1.05 seconds (1.05s).
+[0m00:13:38.809292 [debug] [MainThread]: Command end result
+[0m00:13:38.835749 [info ] [MainThread]: 
+[0m00:13:38.837180 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:13:38.838875 [info ] [MainThread]: 
+[0m00:13:38.841320 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m00:13:38.843845 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.8997978, "process_user_time": 3.629813, "process_kernel_time": 0.257833, "process_mem_max_rss": "110116", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m00:13:38.845284 [debug] [MainThread]: Command `dbt run` succeeded at 00:13:38.845103 after 1.90 seconds
+[0m00:13:38.846590 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59b0d2f370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59aeab2020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d59acd54b80>]}
+[0m00:13:38.847785 [debug] [MainThread]: Flushing usage events

@@ -32,3 +32,30 @@ docker exec -it airflow_scheduler airflow dags trigger dag_traitement_commande
 
 # 4. Vérifie que le statut passe à validee
 docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT id, client_id, statut FROM commande ORDER BY id;"
+
+nwnu kkyy hbfi tvlp
+
+# tester dbd : 
+
+# D'abord les modèles staging
+docker exec -it dbt_livraison dbt run --select staging
+
+# Ensuite intermediate
+docker exec -it dbt_livraison dbt run --select intermediate
+
+# Ensuite les marts
+docker exec -it dbt_livraison dbt run --select marts
+
+# Ou tout d'un coup
+docker exec -it dbt_livraison dbt run
+
+#Vérifier que les vues/tables ont été créées dans PostgreSQL
+
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "\dn"
+# Doit afficher les schemas : staging, intermediate, marts
+
+# Interroger le mart de performance
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT * FROM marts.mart_performance_livraisons;"
+
+# Interroger le mart incidents
+docker exec -it postgres_livraison psql -U livraison -d livraison_db -c "SELECT * FROM marts.mart_incidents;"

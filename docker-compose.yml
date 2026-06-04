@@ -50,6 +50,13 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/warehouse_db
       AIRFLOW__WEBSERVER__SECRET_KEY: "d7K9mP2xQ5vL8nR3tW1yF4cB6jH9uM0k"
+      AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+      AIRFLOW__SMTP__SMTP_STARTTLS: "True"
+      AIRFLOW__SMTP__SMTP_SSL: "False"
+      AIRFLOW__SMTP__SMTP_USER: "loicrakotoarivony07@gmail.com"
+      AIRFLOW__SMTP__SMTP_PASSWORD: "nwnukkyyhbfitvlp"   # App Password sans espaces
+      AIRFLOW__SMTP__SMTP_PORT: "587"
+      AIRFLOW__SMTP__SMTP_MAIL_FROM: "loicrakotoarivony07@gmail.com"
     command: webserver
 
   airflow-scheduler:
@@ -65,6 +72,13 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/warehouse_db
       AIRFLOW__WEBSERVER__SECRET_KEY: "d7K9mP2xQ5vL8nR3tW1yF4cB6jH9uM0k"
+      AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+      AIRFLOW__SMTP__SMTP_STARTTLS: "True"
+      AIRFLOW__SMTP__SMTP_SSL: "False"
+      AIRFLOW__SMTP__SMTP_USER: "loicrakotoarivony07@gmail.com"
+      AIRFLOW__SMTP__SMTP_PASSWORD: "nwnukkyyhbfitvlp"   # App Password sans espaces
+      AIRFLOW__SMTP__SMTP_PORT: "587"
+      AIRFLOW__SMTP__SMTP_MAIL_FROM: "loicrakotoarivony07@gmail.com"
     command: scheduler
 
   postgres-livraison:
@@ -88,6 +102,7 @@ services:
     volumes:
       - ./dbt:/usr/app/dbt
     working_dir: /usr/app/dbt
+    entrypoint: ["tail", "-f", "/dev/null"]   # Override entrypoint pour rester vivant
     environment:
       DBT_HOST: postgres-livraison
       DBT_USER: livraison

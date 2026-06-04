@@ -3,7 +3,7 @@ livraison:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: postgres-livraison   
       user: livraison
       password: livraison_pass
       port: 5432
