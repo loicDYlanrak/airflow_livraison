@@ -1,0 +1,51 @@
+{
+  "id_tournee": 1001,
+  "date_tournee": "2026-06-04",
+  "livreur": {
+    "id_livreur": 12,
+    "nom": "Rakoto",
+    "prenom": "Andry",
+    "telephone": "0341234567"
+  },
+  "vehicule": {
+    "id_vehicule": 5,
+    "immatriculation": "1234 TBA"
+  },
+  "nb_colis_a_livrer": 8,
+  "colis": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    12,
+    15,
+    18
+  ],
+  "clients_a_visiter": [
+    12,
+    25,
+    41,
+    56,
+    78,
+    102,
+    120,
+    145
+  ],
+  "villes_etapes": [
+    "Antananarivo",
+    "Antsirabe",
+    "Fianarantsoa",
+    "Toamasina"
+  ],
+  "km_parcourus": 286,
+  "carburant_litres": 24.5,
+  "frais": {
+    "carburant": 98000,
+    "peage": 15000,
+    "repas": 25000,
+    "total": 138000
+  },
+  "tournee_terminee": true,
+  "commentaire": "Toutes les livraisons prévues ont été effectuées."
+}

@@ -1,2 +1,16 @@
-tout abord il faut historique de commande 
-ensuite la nofitification des clients
+tout abord il faut gerer historique de commande 
+
+entite livreur (dans postgres)
+entite commande (dans postgres)
+entite status_livraison: status_commmande (dans postgres)
+entite incident (dans postgres)
+
+entite client (a mettre dans un fichier txt): id 1 a 150 
+entite colis (dans un excel): id 1 a 20 
+entite tourne (dans un json)
+
+entite retour (dans un csv)
+entite facture (dans un xml)
+entite nofitification (dans un json)
+
+ca doit etre une autre base de donne pour stocker le warehouse 

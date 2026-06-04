@@ -1,0 +1,8 @@
+# SOURCE TXT : Système CRM - Fichier clients (séparateur |)
+id_client|nom|prenom|adresse|ville|province|pays|personne_ressource|telephone|email|segment
+1|Richard|Camille|148 avenue Foch|Lille|Hauts-de-France|France|David Durand|0351177222|richard.camille@entreprise1.fr|TPE
+2|Fontaine|Emma|61 allée des Roses|Montpellier|Occitanie|France|Emma Martin|0150000149|fontaine.emma@entreprise2.fr|TPE
+3|Petit|Antoine|146 rue du Commerce|Montpellier|Occitanie|France|Nicolas Roux|0216962963|petit.antoine@entreprise3.fr|Grand Compte
+4|Laurent|David|612 allée des Roses|Bordeaux|Nouvelle-Aquitaine|France|Sarah Fournier|0961680358|laurent.david@entreprise4.fr|PME
+5|Michel|Marie|326 rue du Commerce|Clermont-Ferrand|Auvergne-Rhône-Alpes|France|Clémence Durand|0813879756|michel.marie@entreprise5.fr|TPE
+6|Lambert|Julie|936 rue de la Paix|Lille|Hauts-de-France|France|Léa Bonnet|0243059986|lambert.julie@entreprise6.fr|Education

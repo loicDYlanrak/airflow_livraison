@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factures>
+
+    <facture>
+        <id_facture>1001</id_facture>
+        <id_client>12</id_client>
+        <id_colis>5</id_colis>
+        <date_facture>2026-06-01</date_facture>
+        <montant_ht>35000</montant_ht>
+        <tva>7000</tva>
+        <montant_ttc>42000</montant_ttc>
+        <mode_paiement>Mobile Money</mode_paiement>
+    </facture>
+
+    <facture>
+        <id_facture>1002</id_facture>
+        <id_client>45</id_client>
+        <id_colis>8</id_colis>
+        <date_facture>2026-06-02</date_facture>
+        <montant_ht>18000</montant_ht>
+        <tva>3600</tva>
+        <montant_ttc>21600</montant_ttc>
+        <mode_paiement>Carte Bancaire</mode_paiement>
+    </facture>
+
+    <facture>
+        <id_facture>1003</id_facture>
+        <id_client>78</id_client>
+        <id_colis>12</id_colis>
+        <date_facture>2026-06-03</date_facture>
+        <montant_ht>42000</montant_ht>
+        <tva>8400</tva>
+        <montant_ttc>50400</montant_ttc>
+        <mode_paiement>Espèces</mode_paiement>
+    </facture>
+
+    <facture>
+        <id_facture>1004</id_facture>
+        <id_client>102</id_client>
+        <id_colis>17</id_colis>
+        <date_facture>2026-06-04</date_facture>
+        <montant_ht>26000</montant_ht>
+        <tva>5200</tva>
+        <montant_ttc>31200</montant_ttc>
+        <mode_paiement>Virement</mode_paiement>
+    </facture>
+
+</factures>

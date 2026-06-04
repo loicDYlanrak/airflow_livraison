@@ -1,0 +1,37 @@
+[
+  {
+    "id_notification": 1,
+    "id_client": 12,
+    "date_notification": "2026-06-01T08:15:00",
+    "titre": "Prise en charge du colis",
+    "message": "Votre colis COL0005 a été pris en charge par notre service."
+  },
+  {
+    "id_notification": 2,
+    "id_client": 45,
+    "date_notification": "2026-06-02T09:30:00",
+    "titre": "Départ de l'entrepôt",
+    "message": "Votre colis COL0008 a quitté l'entrepôt principal."
+  },
+  {
+    "id_notification": 3,
+    "id_client": 78,
+    "date_notification": "2026-06-03T14:20:00",
+    "titre": "En cours de livraison",
+    "message": "Le livreur est en route vers votre adresse."
+  },
+  {
+    "id_notification": 4,
+    "id_client": 102,
+    "date_notification": "2026-06-04T16:45:00",
+    "titre": "Livraison effectuée",
+    "message": "Votre colis a été remis au destinataire."
+  },
+  {
+    "id_notification": 5,
+    "id_client": 140,
+    "date_notification": "2026-06-05T10:00:00",
+    "titre": "Retour enregistré",
+    "message": "La demande de retour du colis COL0020 a été enregistrée."
+  }
+]

@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: stg_commandes
-    description: "Commandes nettoyees et typees"
+    description: "Commandes nettoyées et typées"
     columns:
       - name: commande_id
         tests: [unique, not_null]
@@ -9,13 +9,13 @@ models:
         tests:
           - accepted_values:
               values: ['nouvelle', 'validee', 'en_cours', 'livree', 'annulee']
-  - name: stg_colis
-    description: "Colis nettoyes"
+
+  - name: stg_livreurs
+    description: "Livreurs nettoyés"
     columns:
-      - name: colis_id
+      - name: livreur_id
         tests: [unique, not_null]
-      - name: commande_id
-        tests: [not_null]
+
   - name: stg_statuts_livraison
     description: "Historique des statuts de livraison"
     columns:

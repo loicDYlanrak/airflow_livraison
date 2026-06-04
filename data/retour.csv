@@ -1,0 +1,11 @@
+id_retour,id_colis,id_client,date_retour,motif,commentaire
+1,5,12,2026-06-03,Colis endommagé,Emballage déchiré à la réception
+2,8,45,2026-06-04,Erreur de produit,Produit différent de la commande
+3,12,78,2026-06-05,Refus du client,Le client a changé d'avis
+4,3,21,2026-06-05,Adresse incorrecte,Impossible de localiser le destinataire
+5,17,102,2026-06-06,Produit défectueux,Article non fonctionnel
+6,9,65,2026-06-06,Commande annulée,Annulation après expédition
+7,20,140,2026-06-07,Colis incomplet,Accessoires manquants
+8,14,88,2026-06-08,Erreur de taille,Taille non conforme à la commande
+9,2,36,2026-06-08,Double livraison,Client déjà servi
+10,11,59,2026-06-09,Refus du colis,Refus sans motif précisé

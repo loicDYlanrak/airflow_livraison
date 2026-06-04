@@ -6,12 +6,6 @@ sources:
     schema: public
     tables:
       - name: commande
-      - name: colis
-      - name: client
       - name: livreur
-      - name: tournee
       - name: statut_livraison
       - name: incident
-      - name: retour
-      - name: facture
-      - name: notification
